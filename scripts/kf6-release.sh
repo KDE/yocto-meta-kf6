@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-# add/remove KF5 release recipes
+# add/remove KF6 release recipes
 #
 # SPDX-FileCopyrightText: 2017-2018 Volker Krause <vkrause@kde.org>
-# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+# SPDX-FileCopyrightText: 2020-2023 Andreas Cord-Landwehr <cordlandwehr@kde.org>
 #
 # SPDX-License-Identifier: MIT
 
 function usage()
 {
-    echo "$1 [add|add-tarball|remove] <version>"
+    echo "$1 [add|add-tarball|remove|add-gitmaster] <version>"
     echo "$1 metainfo <version> [sourcedir]"
     exit 1
 }
@@ -31,7 +31,7 @@ if [ -z "$command" ]; then usage $0; fi
 version=$2
 if [ -z "$version" ]; then usage $0; fi
 
-base=$(dirname $0)/../recipes-kf5
+base=$(dirname $0)/../recipes-kf6
 rootdir=$PWD
 
 case $command in
@@ -45,6 +45,26 @@ cat <<EOM > $name
 
 require \${PN}.inc
 SRCREV = "v\${PV}"
+SRC_URI = "git://invent.kde.org/frameworks/\${BPN};nobranch=1;protocol=https"
+S = "\${WORKDIR}/git"
+EOM
+        git add $name
+    done
+    ;;
+add-gitmaster)
+    # porting aid for KF6 staging
+    # search for all non-staging inc files without underlines
+    for recipe in $(find $base -regex ".*/[0-9a-zA-Z\-]+\.inc" | grep -v /staging/); do
+        name=$(echo $recipe | sed -e "s,\.inc,_${version}.bb,")
+        framework=$(echo $recipe | grep -P -o '[0-9a-zA-Z\-]+(?=\.inc)')
+        echo "update ${framework}"
+        SRCREV=$(git ls-remote https://invent.kde.org/frameworks/${framework}.git/ HEAD | awk '{ print $1}')
+cat <<EOM > $name
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+require \${PN}.inc
+SRCREV = "${SRCREV}"
 SRC_URI = "git://invent.kde.org/frameworks/\${BPN};nobranch=1;protocol=https"
 S = "\${WORKDIR}/git"
 EOM
