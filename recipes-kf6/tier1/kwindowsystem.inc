@@ -19,4 +19,5 @@ inherit reuse_license_checksums
 FILES:${PN} += " \
     ${libdir}/plugins/kf6/org.kde.kwindowsystem.platforms/* \
     ${libdir}/plugins/kf6/kwindowsystem/* \
+    ${libdir}/qml/org/kde/kwindowsystem/* \
 "
