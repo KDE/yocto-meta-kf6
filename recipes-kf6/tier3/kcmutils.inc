@@ -10,6 +10,7 @@ PR = "r0"
 DEPENDS:class-target = " \
     qtbase \
     libxml2-native \
+    kactivities \
     kitemviews \
     kconfigwidgets \
     kconfig-native \
