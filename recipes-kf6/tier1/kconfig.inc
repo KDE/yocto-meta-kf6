@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
-# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+# SPDX-FileCopyrightText: 2020-2023 Andreas Cord-Landwehr <cordlandwehr@kde.org>
 #
 # SPDX-License-Identifier: MIT
 #
@@ -17,5 +17,5 @@ inherit reuse_license_checksums
 EXTRA_OECMAKE:class-native = " -DKCONFIG_USE_GUI=OFF"
 
 FILES:${PN}-dev += " \
-    ${libexecdir}/kf5/kconfig_compiler_kf5 \
+    ${libexecdir}/kf6/kconfig_compiler_kf6 \
 "
