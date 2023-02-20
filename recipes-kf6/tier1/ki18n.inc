@@ -28,10 +28,6 @@ EXTRA_OECMAKE:class-native = " -DBUILD_WITH_QTSCRIPT=OFF -DLibIntl_SEARCH_PATH=/
 
 RDEPENDS:${PN}:class-target = " iso-codes"
 
-FILES:${PN}-dbg += " \
-    ${libdir}/plugins/kf5/.debug/ktranscript.so \
-"
-
 FILES:${PN} += " \
     ${libdir}/plugins/kf6/ktranscript.so \
     ${libdir}/qml/org/kde/i18n/localeData \

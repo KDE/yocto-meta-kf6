@@ -25,5 +25,4 @@ inherit reuse_license_checksums
 
 FILES:${PN} += " \
     ${libdir}/qml/org/kde/people/* \
-    ${datadir}/kf5/kpeople/*.png \
 "

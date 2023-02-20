@@ -21,6 +21,5 @@ EXTRA_OECMAKE:append:class-native = " -DSONNET_USE_WIDGETS=OFF -DSONNET_USE_QML=
 EXTRA_OECMAKE:append:class-target = " -DPARSETRIGRAMS_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/parsetrigrams"
 
 FILES:${PN} += " \
-    ${datadir}/kf5/sonnet/ \
     ${libdir}/qml/org/kde/sonnet/ \
 "
