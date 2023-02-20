@@ -17,6 +17,7 @@ DEPENDS = " \
     kcoreaddons-native \
     kio \
     kauth-native \
+    kitemmodels \
     kservice \
     plasma-framework \
     kpackage-native \
@@ -30,5 +31,5 @@ inherit ki18n
 inherit reuse_license_checksums
 
 FILES:${PN} += " \
-    ${libdir}/qml/org/kde/runnermodel/* \
+    ${libdir}/qml/org/kde/krunner/* \
 "
