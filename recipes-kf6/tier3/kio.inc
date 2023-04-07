@@ -15,6 +15,8 @@ DEPENDS = " \
     kservice \
     solid \
     kbookmarks \
+    kcmutils \
+    kcmutils-native \
     kcompletion \
     kconfigwidgets \
     kiconthemes \
