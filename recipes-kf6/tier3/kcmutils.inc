@@ -14,13 +14,10 @@ DEPENDS:class-target = " \
     kitemviews \
     kconfigwidgets \
     kconfig-native \
-    kauth-native \
     kcoreaddons \
     kcoreaddons-native \
     kiconthemes \
-    kservice \
     kxmlgui \
-    kdeclarative \
     kpackage \
     kpackage-native \
 "
