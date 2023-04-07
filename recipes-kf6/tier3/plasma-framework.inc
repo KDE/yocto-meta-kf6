@@ -11,6 +11,7 @@ DEPENDS = " \
     qtbase \
     kactivities \
     karchive \
+    kcmutils-native \
     kconfig \
     kconfig-native \
     kconfigwidgets \
@@ -44,6 +45,7 @@ FILES:${PN} += " \
     ${libdir}/plugins/kf6/kirigami/KirigamiPlasmaStyle.so \
     ${libdir}/plugins/kpackage/packagestructure/*.so \
     ${libdir}/plugins/plasma/scriptengines/*.so \
+    ${libdir}/plugins/kf6/packagestructure/* \
     ${libdir}/qml/org/kde/plasma/accessdenied/* \
     ${libdir}/qml/org/kde/plasma  \
     ${libdir}/qml/org/kde/kirigami.2 \
