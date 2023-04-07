@@ -7,6 +7,7 @@
 
 inherit qt6-cmake
 inherit pkgconfig
+inherit mime-xdg
 
 EXTRA_OECMAKE:append:class-native = " \
     -DOE_KF6_PATH_HOST_ROOT=${STAGING_DIR_HOST} \
@@ -64,6 +65,7 @@ FILES:${PN}:append = " \
     ${datadir}/kservicetypes6/*.desktop \
     ${datadir}/kservices6/*.desktop \
     ${datadir}/polkit-1/actions/*.policy \
+    ${datadir}/mime/packages/kde6.xml \
 "
 
 # TODO "${datadir}/kdevappwizard/templates/*.tar.bz2" is deprecated, remove when all frameworks are ported away
