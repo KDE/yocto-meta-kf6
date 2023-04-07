@@ -25,4 +25,5 @@ inherit reuse_license_checksums
 
 FILES:${PN} += "\
     ${libdir}/plugins/iconengines/ \
+    ${libdir}/qml/org/kde/iconthemes/* \
 "
