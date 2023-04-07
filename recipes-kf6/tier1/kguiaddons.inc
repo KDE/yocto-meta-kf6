@@ -15,6 +15,7 @@ DEPENDS = " \
     qtbase \
     qtwayland \
     qtwayland-native \
+    wayland-protocols \
     plasma-wayland-protocols \
 "
 
