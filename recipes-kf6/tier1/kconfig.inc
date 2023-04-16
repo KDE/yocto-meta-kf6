@@ -12,7 +12,7 @@ PR = "r0"
 DEPENDS = "qtbase kconfig-native"
 
 require kconfig_metainfo.inc
-inherit cmake_kf6
+inherit kf6-cmake
 inherit reuse_license_checksums
 EXTRA_OECMAKE:class-native = " -DKCONFIG_USE_GUI=OFF"
 

@@ -24,8 +24,8 @@ DEPENDS = " \
 "
 
 require ktexteditor_metainfo.inc
-inherit cmake_kf6
-inherit ki18n
+inherit kf6-cmake
+inherit kf6-ki18n
 inherit reuse_license_checksums
 
 # crosscompile support for kcoreaddons_desktop_to_json

@@ -15,7 +15,7 @@ DEPENDS = " \
 "
 
 require syntax-highlighting_metainfo.inc
-inherit cmake_kf6
+inherit kf6-cmake
 inherit perlnative
 inherit reuse_license_checksums
 

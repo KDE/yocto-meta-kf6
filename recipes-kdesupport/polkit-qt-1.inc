@@ -12,7 +12,7 @@ DEPENDS = "qtbase polkit"
 SRC_URI = "git://invent.kde.org/libraries/polkit-qt-1.git;nobranch=1;protocol=https"
 S = "${WORKDIR}/git"
 
-inherit cmake_kf6
+inherit kf6-cmake
 
 FILES:${PN}-dev += " \
     ${libdir}/cmake/PolkitQt5-1/* \

@@ -21,10 +21,10 @@ DEPENDS = " \
 "
 
 require purpose_metainfo.inc
-inherit cmake_kf6
+inherit kf6-cmake
 inherit gettext
 inherit python3native
-inherit kdoctools
+inherit kf6-kdoctools
 inherit reuse_license_checksums
 
 FILES:${PN} += " \

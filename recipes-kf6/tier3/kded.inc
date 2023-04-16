@@ -21,8 +21,8 @@ DEPENDS = " \
 "
 
 require kded_metainfo.inc
-inherit cmake_kf6
-inherit kdoctools
+inherit kf6-cmake
+inherit kf6-kdoctools
 inherit reuse_license_checksums
 
 FILES_SOLIBSDEV = ""

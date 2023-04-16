@@ -14,5 +14,5 @@ PR = "r0"
 DEPENDS = "zlib bzip2 xz qtbase"
 
 require karchive_metainfo.inc
-inherit cmake_kf6
+inherit kf6-cmake
 inherit reuse_license_checksums

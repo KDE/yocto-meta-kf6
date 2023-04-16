@@ -14,5 +14,5 @@ DEPENDS = " \
 "
 
 require kcompletion_metainfo.inc
-inherit cmake_kf6
+inherit kf6-cmake
 inherit reuse_license_checksums

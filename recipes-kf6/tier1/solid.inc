@@ -12,7 +12,7 @@ PR = "r0"
 DEPENDS = "qtbase bison-native"
 
 require solid_metainfo.inc
-inherit cmake_kf6
+inherit kf6-cmake
 inherit reuse_license_checksums
 
 FILES:${PN} += " \

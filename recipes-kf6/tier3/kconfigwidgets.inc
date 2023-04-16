@@ -20,8 +20,8 @@ DEPENDS = "qtbase \
 "
 
 require kconfigwidgets_metainfo.inc
-inherit cmake_kf6
-inherit ki18n
+inherit kf6-cmake
+inherit kf6-ki18n
 inherit reuse_license_checksums
 
 FILES:${PN}-dev += " \
