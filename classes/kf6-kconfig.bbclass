@@ -9,4 +9,4 @@ DEPENDS:append = " \
     kconfig-native \
 "
 
-EXTRA_OECMAKE:append = " -DKF6_HOST_TOOLING=${STAGING_DIR_NATIVE}/${libdir}/cmake"
+EXTRA_OECMAKE:append = " -DKF6_HOST_TOOLING=${STAGING_LIBDIR_NATIVE}/cmake"
