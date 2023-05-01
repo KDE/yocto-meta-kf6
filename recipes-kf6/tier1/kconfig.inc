@@ -16,6 +16,11 @@ inherit kf6-cmake
 inherit reuse_license_checksums
 EXTRA_OECMAKE:class-native = " -DKCONFIG_USE_GUI=OFF"
 
+FILES:${PN} += " \
+    ${libdir}/qml/org/kde/config/qmldir \
+    ${libdir}/qml/org/kde/config/*.so \
+"
+
 FILES:${PN}-dev += " \
     ${libexecdir}/kf6/kconfig_compiler_kf6 \
 "
