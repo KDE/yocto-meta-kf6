@@ -18,7 +18,7 @@ inherit kf6-cmake
 inherit reuse_license_checksums
 
 EXTRA_OECMAKE:append:class-native = " -DSONNET_USE_WIDGETS=OFF -DSONNET_USE_QML=OFF"
-EXTRA_OECMAKE:append:class-target = " -DPARSETRIGRAMS_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/parsetrigrams"
+EXTRA_OECMAKE:append:class-target = " -DPARSETRIGRAMS_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/parsetrigrams6"
 
 FILES:${PN} += " \
     ${libdir}/qml/org/kde/sonnet/ \
