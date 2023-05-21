@@ -13,6 +13,7 @@ DEPENDS = "qtbase \
     kcoreaddons \
     kcoreaddons-native \
     kcodecs \
+    kcolorscheme \
     kconfig \
     kconfig-native \
     kguiaddons \
