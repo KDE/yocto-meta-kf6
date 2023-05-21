@@ -16,7 +16,8 @@ inherit kf6-cmake
 inherit reuse_license_checksums
 
 FILES:${PN} += " \
-    ${libdir}/qml/org/kde/kirigami.2 \
+    ${libdir}/qml/org/kde/kirigami/* \
+    ${libdir}/qml/org/kde/kirigami.2/* \
 "
 
 RDEPENDS:${PN} += " \
