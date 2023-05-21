@@ -9,6 +9,7 @@ PR = "r0"
 DEPENDS = " \
     qtbase \
     kwidgetsaddons \
+    kcodecs \
     kconfig \
     kconfig-native \
 "
