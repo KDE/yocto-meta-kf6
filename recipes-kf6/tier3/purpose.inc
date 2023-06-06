@@ -28,8 +28,9 @@ inherit kf6-kdoctools
 inherit reuse_license_checksums
 
 FILES:${PN} += " \
-    ${libdir}/plugins/kf6/kfileitemaction \
-    ${libdir}/plugins/kf6/purpose \
-    ${libdir}/qml/org/kde/purpose \
-    ${datadir}/icons/hicolor \
+    ${libdir}/plugins/kf6/kfileitemaction/* \
+    ${libdir}/plugins/kf6/purpose/* \
+    ${libdir}/qml/org/kde/purpose/* \
+    ${datadir}/icons/hicolor/* \
+    ${datadir}/kf6/purpose/* \
 "
