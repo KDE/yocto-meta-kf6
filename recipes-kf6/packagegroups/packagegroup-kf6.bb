@@ -57,6 +57,7 @@ RDEPENDS:${PN} = " \
     knotifications \
     kpackage \
     kpty \
+    ksvg \
     kunitconversion \
     syndication \
     \
