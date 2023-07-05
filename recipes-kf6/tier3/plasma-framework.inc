@@ -11,6 +11,7 @@ DEPENDS = " \
     qtbase \
     kactivities \
     karchive \
+    kcmutils \
     kcmutils-native \
     kconfig \
     kconfig-native \
@@ -24,6 +25,7 @@ DEPENDS = " \
     kcoreaddons-native \
     kauth-native \
     kservice \
+    ksvg \
     kwindowsystem \
     kxmlgui \
     knotifications \
@@ -47,8 +49,9 @@ FILES:${PN} += " \
     ${libdir}/plugins/plasma/scriptengines/*.so \
     ${libdir}/plugins/kf6/packagestructure/* \
     ${libdir}/qml/org/kde/plasma/accessdenied/* \
-    ${libdir}/qml/org/kde/plasma  \
-    ${libdir}/qml/org/kde/kirigami.2 \
+    ${libdir}/qml/org/kde/plasma/*  \
+    ${libdir}/qml/org/kde/styles/Plasma/*  \
+    ${libdir}/qml/org/kde/kirigami/* \
     ${libdir}/qml/QtQuick/Controls.2/Plasma \
     ${libdir}/qml/QtQuick/Controls/Styles/Plasma \
     ${datadir}/plasma/services/*.operations \

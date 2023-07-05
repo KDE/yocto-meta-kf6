@@ -27,6 +27,5 @@ inherit reuse_license_checksums
 
 FILES_SOLIBSDEV = ""
 FILES:${PN} += " \
-    ${libdir}/libkdeinit5_kded5.so \
-    ${libdir}/systemd/user/plasma-kded.service \
+    ${libdir}/systemd/user/plasma-kded6.service \
 "

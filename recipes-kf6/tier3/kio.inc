@@ -15,8 +15,6 @@ DEPENDS = " \
     kservice \
     solid \
     kbookmarks \
-    kcmutils \
-    kcmutils-native \
     kcompletion \
     kconfigwidgets \
     kiconthemes \
@@ -49,8 +47,8 @@ FILES:${PN} += " \
     ${libdir}/plugins/plasma/kcms/systemsettings/*.so \
     ${libdir}/plugins/plasma/kcms/systemsettings_qwidgets/*.so \
     ${datadir}/kservices6/useragentstrings/*.desktop \
-    ${datadir}/kservices6/searchproviders/*.desktop \
     ${datadir}/kf6/kcookiejar/domain_info \
+    ${datadir}/kf6/searchproviders/* \
     ${datadir}/kconf_update \
 "
 
