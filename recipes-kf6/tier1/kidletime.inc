@@ -12,6 +12,9 @@ PR = "r0"
 
 DEPENDS = " \
     qtbase \
+    qtwayland \
+    qtwayland-native \
+    plasma-wayland-protocols \
 "
 
 require kidletime_metainfo.inc
