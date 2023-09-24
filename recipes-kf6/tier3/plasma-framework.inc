@@ -34,6 +34,7 @@ DEPENDS = " \
     kwayland \
     kirigami \
     gzip-native \
+    qtwayland-native \
 "
 
 require plasma-framework_metainfo.inc
