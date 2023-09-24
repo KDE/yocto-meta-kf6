@@ -64,6 +64,7 @@ FILES:${PN}:append = " \
     ${datadir}/kservices6/*.desktop \
     ${datadir}/polkit-1/actions/*.policy \
     ${datadir}/mime/packages/kde6.xml \
+    ${libdir}/qml/org/kde/* \
 "
 
 # TODO "${datadir}/kdevappwizard/templates/*.tar.bz2" is deprecated, remove when all frameworks are ported away
