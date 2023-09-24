@@ -58,6 +58,7 @@ RDEPENDS:${PN} = " \
     kpackage \
     kpty \
     ksvg \
+    kstatusnotifieritem \
     kunitconversion \
     syndication \
     \
