@@ -20,6 +20,7 @@ inherit mime
 FILES:${PN} += " \
     ${datadir}/mime/packages/kde5.xml \
     ${datadir}/kf6/licenses/* \
+    ${datadir}/kf6/jsonschema/* \
     ${libdir}/qml/org/kde/coreaddons/* \
 "
 
