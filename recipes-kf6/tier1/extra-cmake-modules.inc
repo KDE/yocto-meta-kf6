@@ -14,6 +14,7 @@ inherit reuse_license_checksums
 
 CLEANBROKEN = "1"
 
+INSANE_SKIP:${PN}-dev = "file-rdeps"
 RDEPENDS:${PN}-dev = ""
 
 FILES:${PN}-dev += " ${datadir}/ECM"
