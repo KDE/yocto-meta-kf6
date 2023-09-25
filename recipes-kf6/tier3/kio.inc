@@ -38,18 +38,27 @@ inherit reuse_license_checksums
 
 # handling symlink: /usr/lib/plugins/plasma/kcms/systemsettings_qwidgets/kcm_webshortcuts.so
 INSANE_SKIP:${PN} = "dev-so"
+FILES_SOLIBSDEV = ""
 FILES:${PN} += " \
     ${libdir}/plugins/kcm_*.so \
     ${libdir}/plugins/kf6/kio/*.so \
     ${libdir}/plugins/kf6/kded/*.so \
     ${libdir}/plugins/kf6/kiod/*.so \
     ${libdir}/plugins/kf6/urifilters/*.so \
+    ${libdir}/libkuriikwsfiltereng_private.so \
     ${libdir}/plugins/plasma/kcms/systemsettings/*.so \
     ${libdir}/plugins/plasma/kcms/systemsettings_qwidgets/*.so \
     ${datadir}/kservices6/useragentstrings/*.desktop \
     ${datadir}/kf6/kcookiejar/domain_info \
     ${datadir}/kf6/searchproviders/* \
     ${datadir}/kconf_update \
+"
+
+FILES:${PN}-dev += " \
+    ${libdir}/libKF6KIOGui.so \
+    ${libdir}/libKF6KIOWidgets.so \
+    ${libdir}/libKF6KIOFileWidgets.so \
+    ${libdir}/libKF6KIOCore.so \
 "
 
 RDEPENDS:${PN} += " \
