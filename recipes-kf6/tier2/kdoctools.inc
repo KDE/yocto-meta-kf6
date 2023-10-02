@@ -16,7 +16,8 @@ DEPENDS = " \
     docbook-xsl-stylesheets \
     liburi-perl-native \
     kdoctools-native \
-"
+    docbook-xsl-stylesheets-native \
+" 
 
 require kdoctools_metainfo.inc
 inherit kf6-cmake

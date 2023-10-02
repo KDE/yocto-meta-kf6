@@ -21,6 +21,7 @@ DEPENDS:class-target = " \
 
 require ki18n_metainfo.inc
 inherit kf6-cmake
+inherit cmake_sysroot
 inherit python3native
 inherit reuse_license_checksums
 

@@ -7,6 +7,7 @@
 
 LICENSE = "LGPL-2.0-or-later"
 LICENSE:${PN}-tools = "GPL-2.0-or-later"
+
 PR = "r0"
 
 DEPENDS = " \

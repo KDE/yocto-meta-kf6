@@ -6,7 +6,6 @@ DESCRIPTION = "QCA"
 HOMEPAGE = "https://invent.kde.org/libraries/qca/"
 LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=fbc093901857fcd118f065f900982c24"
-PR = "r0"
 
 DEPENDS = " \
     botan \
@@ -18,7 +17,6 @@ DEPENDS = " \
 "
 
 SRC_URI = "git://invent.kde.org/libraries/${BPN};nobranch=1;protocol=https"
-S = "${WORKDIR}/git"
 
 inherit kf6-cmake
 inherit pkgconfig
