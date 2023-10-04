@@ -13,6 +13,8 @@ inherit reuse_license_checksums
 
 DEPENDS = " \
     exiv2 \
+    qtbase \
+    qt5compat \
 "
 
 KF5_REUSE_LICENSECHECK_ENABLED="1"
