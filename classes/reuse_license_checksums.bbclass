@@ -80,7 +80,7 @@ do_populate_lic:prepend() {
         print('Set LIC_FILES_CHKSUM from known SPDX files to:', d.getVar('LIC_FILES_CHKSUM'))
 
     # QA test for complete statement
-    if d.getVar('KF5_REUSE_LICENSECHECK_ENABLED') and d.getVar('KF5_REUSE_LICENSECHECK_ENABLED') == '1':
+    if d.getVar('KF6_REUSE_LICENSECHECK_ENABLED') and d.getVar('KF6_REUSE_LICENSECHECK_ENABLED') == '1':
         src_licenses = os.listdir(os.path.join(srcdir, 'LICENSES/'))
         for license_file in src_licenses:
             # convert license_file to SPDX identifier
