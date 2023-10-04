@@ -31,4 +31,5 @@ REQUIRED_DISTRO_FEATURES += "xattr"
 
 FILES:${PN} += " \
     ${libdir}/plugins/kf6/kfilemetadata/*.so \
+    ${libdir}/plugins/kf6/kfilemetadata/writers/*.so \
 "
