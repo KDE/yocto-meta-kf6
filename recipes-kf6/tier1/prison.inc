@@ -7,7 +7,13 @@ REUSE_LICENSECHECK_WHITELIST = "CC0-1.0"
 LICENSE = "MIT & BSD-3-Clause"
 PR = "r0"
 
-DEPENDS = "qtbase qtdeclarative qrencode libdmtx"
+DEPENDS = " \
+    qtbase \
+    qtdeclarative \
+    qtmultimedia \
+    qrencode \
+    libdmtx \
+"
 
 require prison_metainfo.inc
 inherit kf6-cmake
