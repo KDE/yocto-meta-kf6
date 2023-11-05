@@ -2,6 +2,6 @@
 # SPDX-License-Identifier: CC0-1.0
 
 require ${PN}.inc
-SRCREV = "c49192a7363d398c914c1d28383e90e67f92ba18"
+SRCREV = "5ae769c1e0b4eb5500ce9e84b0fdf3d89685d1ab"
 SRC_URI = "git://invent.kde.org/frameworks/${BPN};nobranch=1;protocol=https"
 S = "${WORKDIR}/git"
