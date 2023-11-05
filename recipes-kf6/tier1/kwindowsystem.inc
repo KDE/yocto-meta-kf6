@@ -10,6 +10,9 @@ PR = "r0"
 
 DEPENDS = " \
     qtbase \
+    qtwayland \
+    qtwayland-native \
+    plasma-wayland-protocols \
 "
 
 require kwindowsystem_metainfo.inc
