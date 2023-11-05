@@ -4,5 +4,5 @@
 require ${PN}.inc
 # NOTE: this is an arbitrary hash chosen to provide all
 # dependencies of kwin at time of bumping
-SRCREV = "d7fb5c066d8a4eb67b6af86a46073d4547e5a2b3"
-PR = "1"
+SRCREV = "e5ea68d0acb2f1264facb5bfdcd548d9aa0d1a25"
+PR = "2"
