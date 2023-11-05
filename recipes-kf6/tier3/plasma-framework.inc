@@ -45,7 +45,7 @@ inherit reuse_license_checksums
 
 FILES:${PN} += " \
     ${libdir}/plugins/*.so \
-    ${libdir}/plugins/kf6/kirigami/KirigamiPlasmaStyle.so \
+    ${libdir}/plugins/kf6/kirigami/platform/KirigamiPlasmaStyle.so \
     ${libdir}/plugins/kpackage/packagestructure/*.so \
     ${libdir}/plugins/plasma/scriptengines/*.so \
     ${libdir}/plugins/kf6/packagestructure/* \
