@@ -72,7 +72,7 @@ EOM
     done
     ;;
 add-tarball)
-    foldername=$(echo "${version}" | grep -o -E "^([0-9]+\.[0-9]+)")
+    foldername=$(echo "${version}" | grep -o -E "^([0-9]+\.[0-9]+\.[0-9]+)")
     # search for all non-staging inc files without underlines
     for recipe in $(find $base -regex ".*/[0-9a-zA-Z\-]+\.inc" | grep -v /staging/); do
         name=$(echo $recipe | sed -e "s,\.inc,_${version}.bb,")
@@ -80,10 +80,6 @@ add-tarball)
 
         # due to historic reasons manual rewriting certain names
         extraconfig=""
-        if [[ "${framework}" == "kirigami" ]]; then
-            framework="kirigami2"
-            extraconfig="S = \"\${WORKDIR}/kirigami2-\${PV}\""
-        fi
 
         # deprecated modules are stored in portingAids folder
         portingAidSubfolder=""
@@ -95,7 +91,7 @@ add-tarball)
         then
             portingAidSubfolder="portingAids/"
         fi
-        url="https://download.kde.org/stable/frameworks/${foldername}/${portingAidSubfolder}${framework}-${version}.tar.xz"
+        url="https://download.kde.org/unstable/frameworks/${foldername}/${portingAidSubfolder}${framework}-${version}.tar.xz"
         sha256=$(curl -s "${url}.sha256" | cut -d" " -f1)
         echo "${url} : ${sha256}"
 # examples:
