@@ -14,6 +14,11 @@ require kquickcharts_metainfo.inc
 inherit kf6-cmake
 inherit reuse_license_checksums
 
+FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"
+
 FILES:${PN} += " \
-  ${libdir}/qml/org/kde/quickcharts \
+    ${libdir}/qml/org/kde/quickcharts \
+    ${libdir}/libQuickChartsControls.so \
+    ${libdir}/libQuickCharts.so \
 "
