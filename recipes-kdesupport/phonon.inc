@@ -16,14 +16,11 @@ DEPENDS += " \
     extra-cmake-modules \
 "
 
-SRC_URI = "git://invent.kde.org/libraries/${BPN};nobranch=1;protocol=https"
-S = "${WORKDIR}/git"
+SRC_URI = "https://download.kde.org/stable/phonon/${PV}/phonon-${PV}.tar.xz"
 
 inherit qt6-cmake
 EXTRA_OECMAKE += " \
-    -DPHONON_BUILD_PHONON4QT5=ON \
-    -DBUILD_WITH_QT6=ON \
-    -DQT_MAJOR_VERSION=6 \
+    -DPHONON_BUILD_QT5=OFF \
 "
 
 # remove the widget designer plugin, this makes no sense for the target
