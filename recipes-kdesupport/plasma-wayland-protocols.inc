@@ -11,9 +11,6 @@ DEPENDS = "extra-cmake-modules"
 
 BBCLASSEXTEND = "native nativesdk"
 
-SRC_URI = "git://invent.kde.org/libraries/${BPN};nobranch=1;protocol=https"
-S = "${WORKDIR}/git"
-
 inherit qt6-cmake
 
 FILES:${PN}-dev += " \
