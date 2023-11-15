@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2019-2020 Volker Krause <vkrause@kde.org>
 # SPDX-FileCopyrightText: 2019 Alistair Francis <alistair.francis@wdc.com>
-# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+# SPDX-FileCopyrightText: 2020,2023 Andreas Cord-Landwehr <cordlandwehr@kde.org>
 #
 # SPDX-License-Identifier: MIT
 
@@ -35,19 +35,17 @@ RDEPENDS:${PN} = " \
     kitemviews \
     kplotting \
     kquickcharts \
+    kuserfeedback \
     syntax-highlighting \
-    kwayland \
     kwidgetsaddons \
     kwindowsystem \
     modemmanager-qt \
     networkmanager-qt \
-    oxygen-icons5 \
     prison \
     solid \
     sonnet \
     threadweaver \
     \
-    kactivities \
     kauth \
     kcontacts \
     kcrash \
@@ -63,7 +61,6 @@ RDEPENDS:${PN} = " \
     syndication \
     \
     baloo \
-    kactivities-stats \
     kbookmarks \
     kcmutils \
     kdav \
@@ -83,9 +80,17 @@ RDEPENDS:${PN} = " \
     ktextwidgets \
     kwallet \
     kxmlgui \
-    plasma-framework \
     purpose \
     qqc2-desktop-style \
     \
     frameworkintegration \
+"
+
+# additional packages
+RDEPENDS:${PN} = " \
+    oxygen-icons \
+    plasma-wayland-protocols \
+    libkexiv2 \
+    phonon \
+    polkit-qt-1 \
 "
