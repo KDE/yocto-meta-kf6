@@ -19,3 +19,8 @@ FILES:${PN} += " \
     ${libdir}/qml/org/kde/solid/qmldir \
     ${libdir}/qml/org/kde/solid/*.so \
 "
+
+RRECOMMENDS:${PN}:append = " \
+    udisks2 \
+    upower \
+"
