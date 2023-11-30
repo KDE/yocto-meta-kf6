@@ -81,17 +81,7 @@ add-tarball)
         # due to historic reasons manual rewriting certain names
         extraconfig=""
 
-        # deprecated modules are stored in portingAids folder
-        portingAidSubfolder=""
-        if [[ "$framework" == "kxmlrpcclient" ]] \
-        || [[ "$framework" == "kjs" ]] \
-        || [[ "$framework" == "kjsembed" ]] \
-        || [[ "$framework" == "kdesignerplugin" ]] \
-        || [[ "$framework" == "kdelibs4support" ]];
-        then
-            portingAidSubfolder="portingAids/"
-        fi
-        url="https://download.kde.org/unstable/frameworks/${foldername}/${portingAidSubfolder}${framework}-${version}.tar.xz"
+        url="https://download.kde.org/unstable/frameworks/${foldername}/${framework}-${version}.tar.xz"
         sha256=$(curl -s "${url}.sha256" | cut -d" " -f1)
         echo "${url} : ${sha256}"
 # examples:
