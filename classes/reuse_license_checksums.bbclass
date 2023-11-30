@@ -11,7 +11,10 @@ do_populate_lic:prepend() {
     # unfortunatly license text may differ in whitespaces and empty lines
     checksum_map = {
         'LGPL-2.0-only': [ '6d2d9952d88b50a51a5c73dc431d06c7' ],
-        'LGPL-2.0-or-later': [ '6d2d9952d88b50a51a5c73dc431d06c7' ],
+        'LGPL-2.0-or-later': [
+            '6d2d9952d88b50a51a5c73dc431d06c7',
+            '65d3616852dbf7b1a6d4b53b00626032'
+        ],
         'LGPL-2.1-only': [ 'fabba2a3bfeb22a6483d44e9ae824d3f' ],
         'LGPL-2.1-or-later': [
             "2a4f4fd2128ea2f65047ee63fbca9f68",
@@ -26,7 +29,10 @@ do_populate_lic:prepend() {
         ],
         'GPL-3.0-only': [ '1c76c4cc354acaac30ed4d5eefea7245' ],
         'GPL-3.0-or-later': [ '1c76c4cc354acaac30ed4d5eefea7245' ],
-        'BSD-2-Clause': [ '63d6ee386b8aaba70b1bf15a79ca50f2' ],
+        'BSD-2-Clause': [
+            '63d6ee386b8aaba70b1bf15a79ca50f2',
+            'd0f280d1058e77e66264a9b9e10e6c89'
+        ],
         'BSD-3-Clause': [ '954f4d71a37096249f837652a7f586c0' ],
         'MIT': [ '38aa75cf4c4c87f018227d5ec9638d75' ],
         'MIT-CMU' : [ '91b70218e0db8e063ed88cd532cb801d' ],
@@ -40,7 +46,10 @@ do_populate_lic:prepend() {
         ],
         'MIT-CMU': [ 'b6936b5be2ab721140d9bf57c37b0b92' ],
         'Unicode-DFS-2016': [ '3daac258519ec32945c80ae0f7ba88f4' ],
-        'CC0-1.0': [ '6fd064768b8d61c31ddd0540570fbd33' ],
+        'CC0-1.0': [
+            '6fd064768b8d61c31ddd0540570fbd33',
+            '65d3616852dbf7b1a6d4b53b00626032'
+        ],
         'Unicode-DFS-2016': [ '3daac258519ec32945c80ae0f7ba88f4' ],
     }
 
@@ -73,7 +82,7 @@ do_populate_lic:prepend() {
                     bb.warn("QA Issue: %s [%s]" % (license_id + " not found in checksum table, md5sum=" + md5chksum, "reuse_license"))
                 break
             else:
-                bb.warn("License checksum database has no entry: ", license_id)
+                bb.error("License not in LICENSES/ file, check license statement: ", license_id)
 
         separator = " "
         d.setVar('LIC_FILES_CHKSUM', separator.join(checksum_entries))
