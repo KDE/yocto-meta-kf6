@@ -9,20 +9,12 @@ PR = "r0"
 
 DEPENDS = " \
     qtbase \
-    qtdeclarative \
     libxml2-native \
     kconfig \
     kconfig-native \
     kcoreaddons \
     kcoreaddons-native \
-    kio \
-    kauth-native \
     kitemmodels \
-    kservice \
-    plasma-framework \
-    kpackage-native \
-    solid \
-    threadweaver \
 "
 
 require krunner_metainfo.inc
