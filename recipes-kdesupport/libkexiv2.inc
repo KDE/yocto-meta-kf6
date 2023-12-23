@@ -8,7 +8,7 @@ HOMEPAGE = "https://invent.kde.org/graphics/libkexiv2"
 LICENSE = "BSD-3-Clause & GPL-2.0-or-later"
 
 
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit reuse_license_checksums
 
 DEPENDS = " \

@@ -20,7 +20,7 @@ DEPENDS = " \
 " 
 
 require kdoctools_metainfo.inc
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit gettext
 inherit python3native
 inherit perlnative

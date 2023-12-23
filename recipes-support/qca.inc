@@ -18,7 +18,7 @@ DEPENDS = " \
 
 SRC_URI = "git://invent.kde.org/libraries/${BPN};nobranch=1;protocol=https"
 
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit pkgconfig
 
 EXTRA_OECMAKE += " \

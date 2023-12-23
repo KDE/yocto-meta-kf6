@@ -12,7 +12,7 @@ PR = "r0"
 DEPENDS = "qtbase kcoreaddons-native"
 
 require kcoreaddons_metainfo.inc
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit reuse_license_checksums
 inherit mime-xdg
 inherit mime

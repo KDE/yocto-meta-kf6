@@ -21,7 +21,7 @@ DEPENDS += " \
 "
 
 require kfilemetadata_metainfo.inc
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit kf6-ki18n
 inherit kf6-kconfig
 inherit features_check

@@ -30,6 +30,6 @@ EXTRA_OECMAKE += " \
 
 inherit pkgconfig
 require kwallet_metainfo.inc
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit kf6-ki18n
 inherit reuse_license_checksums

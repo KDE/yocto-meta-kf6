@@ -11,5 +11,5 @@ PR = "r0"
 DEPENDS = "qtbase"
 
 require kdbusaddons_metainfo.inc
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit reuse_license_checksums

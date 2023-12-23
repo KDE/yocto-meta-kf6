@@ -27,7 +27,7 @@ DEPENDS = " \
 "
 
 require kio_metainfo.inc
-inherit kf6-cmake
+inherit kf6-cmake-framework
 inherit kf6-kcoreaddons
 inherit kf6-kconfig
 inherit kf6-ki18n

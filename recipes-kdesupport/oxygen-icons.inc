@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING.LIB;md5=2d5025d4aa3495befef8f17206a5b0a1"
 PR = "r0"
 
 require oxygen-icons_metainfo.inc
-inherit kf6-cmake
+inherit kf6-cmake-framework
 
 FILES:${PN} += " \
     ${datadir}/icons/oxygen/index.theme \
