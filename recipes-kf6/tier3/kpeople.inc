@@ -10,6 +10,7 @@ PR = "r0"
 DEPENDS = " \
     qtbase \
     qtdeclarative \
+    kcontacts \
     kcoreaddons \
     kcoreaddons-native \
     kwidgetsaddons \
@@ -25,4 +26,5 @@ inherit reuse_license_checksums
 
 FILES:${PN} += " \
     ${libdir}/qml/org/kde/people/* \
+    ${libdir}/plugins/kpeople/datasource/KPeopleVCard.so \
 "
