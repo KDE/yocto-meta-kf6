@@ -13,6 +13,7 @@ DEPENDS = " \
     qtmultimedia \
     qrencode \
     libdmtx \
+    zxing-cpp \
 "
 
 require prison_metainfo.inc
