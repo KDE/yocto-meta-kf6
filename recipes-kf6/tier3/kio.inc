@@ -12,6 +12,7 @@ DEPENDS = " \
     qtbase \
     karchive \
     kdbusaddons \
+    kcrash \
     kservice \
     solid \
     kbookmarks \
