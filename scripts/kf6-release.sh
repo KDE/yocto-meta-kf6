@@ -11,6 +11,7 @@ function usage()
 {
     echo "$1 [add|add-tarball|remove|add-gitmaster] <version>"
     echo "$1 metainfo <version> [sourcedir]"
+    echo "$1 packagegroup <version>"
     exit 1
 }
 
@@ -143,6 +144,35 @@ EOM
         git add $filename
         echo "$framework: DONE"
     done
+    ;;
+packagegroup)
+    echo "Updating packagegroup..."
+    packagegroup_file="recipes-kf6/packagegroups/packagegroup-kf6-full.bb"
+cat <<EOM > ${packagegroup_file}
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+SUMMARY = "All meta-kf6 packages"
+DESCRIPTION = "This packagegroup is pimarily meant for release testing."
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://\${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+REQUIRED_DISTRO_FEATURES = "wayland x11"
+PV = "${version}"
+
+inherit packagegroup features_check
+
+EOM
+    rdepends='RDEPENDS:${PN} += " \\'$"\\n"
+    foldername=$(echo "${version}" | grep -o -E "^([0-9]+\.[0-9]+\.[0-9]+)")
+    # search for all non-staging inc files without underlines
+    for recipe in $(find $base -regex ".*/[0-9a-zA-Z\-]+\.inc" | grep -v /staging/ | grep -v /packagegroups/ ); do
+        framework=$(echo $recipe | grep -P -o '[0-9a-zA-Z\-]+(?=\.inc)')
+        rdepends+="${framework}"' \\'$"\\n"
+    done
+    rdepends+='"'
+    echo -e ${rdepends} >> ${packagegroup_file}
+    git add ${packagegroup_file}
     ;;
 *)
     usage $0
