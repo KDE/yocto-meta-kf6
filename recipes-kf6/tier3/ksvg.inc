@@ -15,6 +15,7 @@ DEPENDS = " \
     kirigami \
 "
 
+require ksvg_metainfo.inc
 inherit kf6-kconfig
 inherit kf6-cmake-framework
 inherit reuse_license_checksums
