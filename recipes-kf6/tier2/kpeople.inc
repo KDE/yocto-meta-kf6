@@ -11,11 +11,10 @@ DEPENDS = " \
     qtbase \
     qtdeclarative \
     kcontacts \
+    kconfig-native \
     kcoreaddons \
     kcoreaddons-native \
     kwidgetsaddons \
-    kservice \
-    kconfig-native \
     kitemviews \
 "
 
