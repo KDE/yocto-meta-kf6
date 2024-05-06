@@ -12,6 +12,7 @@ DEPENDS += " \
     qtbase \
     qt5compat \
     karchive \
+    kcodecs \
     kcoreaddons \
     kcoreaddons-native \
     libkexiv2 \
