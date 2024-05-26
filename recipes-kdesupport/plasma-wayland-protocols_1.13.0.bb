@@ -3,7 +3,6 @@
 
 require ${PN}.inc
 
-# NOTE: this is an unreleased selected git hash, needed for compatibility with Plasma 5.90.0
-SRCREV = "2ead53e10b584e7c2ffd204f69457dedebf640ce"
 SRC_URI = "git://invent.kde.org/libraries/${BPN}.git;nobranch=1;protocol=https"
+SRCREV = "2a09c448ecceef4de5bb0fda7e12b38cfcf0278b"
 S = "${WORKDIR}/git"
