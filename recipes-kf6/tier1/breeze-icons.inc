@@ -12,6 +12,15 @@ inherit kf6-cmake-framework
 # due to the CMAKE_FIND_ROOT_PATH settings
 EXTRA_OECMAKE:class-target += " -DBASH_EXE=`which bash`"
 
+do_install:append:class-native() {
+    install -d ${D}/${bindir}
+    install ${B}/bin/qrcAlias ${D}/${bindir}
+}
+
+DEPENDS += " \
+    breeze-icons-native \
+"
+
 FILES:${PN} += " \
     ${datadir}/icons/breeze \
     ${datadir}/icons/breeze-dark \
