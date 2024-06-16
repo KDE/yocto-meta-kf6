@@ -7,8 +7,8 @@
 LICENSE = "LGPL-2.1-only"
 PR = "r0"
 
-DEPENDS = "qtbase \
-    qtsvg \
+DEPENDS = " \
+    breeze-icons \
     karchive \
     kcoreaddons \
     kcoreaddons-native \
@@ -16,6 +16,9 @@ DEPENDS = "qtbase \
     kconfig-native \
     kauth-native \
     kwidgetsaddons \
+    qtbase \
+    qtbase-native \
+    qtsvg \
 "
 
 require kiconthemes_metainfo.inc
@@ -25,5 +28,6 @@ inherit reuse_license_checksums
 
 FILES:${PN} += "\
     ${libdir}/plugins/iconengines/ \
+    ${libdir}/plugins/kiconthemes6/iconengines/KIconEnginePlugin.so \
     ${libdir}/qml/org/kde/iconthemes/* \
 "
