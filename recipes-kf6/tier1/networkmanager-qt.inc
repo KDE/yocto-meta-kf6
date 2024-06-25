@@ -6,7 +6,7 @@
 LICENSE = "BSD-3-Clause & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 PR = "r0"
 
-DEPENDS = "qtbase networkmanager"
+DEPENDS = "qtbase qtdeclarative networkmanager"
 
 require networkmanager-qt_metainfo.inc
 inherit kf6-cmake-framework
