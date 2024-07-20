@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
 # SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
-# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+# SPDX-FileCopyrightText: 2020-2024 Andreas Cord-Landwehr <cordlandwehr@kde.org>
 #
 # SPDX-License-Identifier: MIT
 
@@ -10,11 +10,11 @@ PR = "r0"
 DEPENDS += " \
     extra-cmake-modules \
     qtbase \
-    qt5compat \
     kcoreaddons \
 "
 DEPENDS:append:class-target = " \
     kauth-native \
+    kwindowsystem \
     polkit-qt-1 \
 "
 
@@ -22,8 +22,8 @@ require kauth_metainfo.inc
 inherit kf6-cmake-framework
 inherit reuse_license_checksums
 
-EXTRA_OECMAKE:append:class-target = " \
-    -DKAUTH_BACKEND_NAME=POLKITQT5-1 \
+EXTRA_OECMAKE += " \
+    -DKAUTH_BACKEND_NAME=POLKITQT6-1 \
 "
 
 EXTRA_OECMAKE:append:class-native = " \
@@ -33,7 +33,7 @@ EXTRA_OECMAKE:append:class-native = " \
 
 FILES:${PN} += " \
     ${libdir}/plugins/kf6/kauth/helper/kauth_helper_plugin.so \
-    ${libdir}/plugins/kauth/backend/kauth_backend_plugin.so \
+    ${libdir}/plugins/kf6/kauth/backend/kauth_backend_plugin.so \
     ${datadir}/kf6/kauth/*.stub \
 "
 
