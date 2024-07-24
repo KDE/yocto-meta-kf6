@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2023 Justin Hammond <justin@dynam.ac>
+# SPDX-FileCopyrightText: 2024 Marc Ferland <marc.ferland@sonatest.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -14,8 +15,4 @@ inherit reuse_license_checksums
 DEPENDS = " \
     exiv2 \
     qtbase \
-    qt5compat \
 "
-
-KF5_REUSE_LICENSECHECK_ENABLED="1"
-
