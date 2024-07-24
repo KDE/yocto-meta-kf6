@@ -9,7 +9,6 @@ PR = "r0"
 DEPENDS += " \
     qtbase \
     qtdeclarative \
-    qt5compat \
     sonnet-native \
 "
 
