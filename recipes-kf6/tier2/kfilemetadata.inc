@@ -10,7 +10,6 @@ PR = "r0"
 
 DEPENDS += " \
     qtbase \
-    qt5compat \
     karchive \
     kcodecs \
     kcoreaddons \
