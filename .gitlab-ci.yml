@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: none
+
+# TODO / discussion points
+# - checkouts are very big, keep them?
+# - check pipeline names/stages
+# - change packagegroup target into minimal image target to test installation
+# - Yocto build should be configured with rm_work for releasing disk space (requires fixes in kdoctools)
+
+include:
+  - project: sysadmin/ci-utilities
+    file:
+      - /gitlab-templates/blocks/workflow.yml
+
+yocto_scarthgap:
+  stage: build
+  image: invent-registry.kde.org/sysadmin/ci-images/yocto-builder:latest
+  tags:
+    - Yocto
+  before_script:
+    - repo init -u https://invent.kde.org/packaging/yocto-manifest.git -m scarthgap.xml
+    - repo sync
+  script:
+    - MACHINE=visionfive2 . ./setup-environment
+    - echo 'SSTATE_DIR = "/mnt/caches/yocto_sstate_scarthgap"' >> conf/site.conf
+# limit computation: ncpus/4
+    - echo 'BB_NUMBER_THREADS = "4"' >> conf/site.conf
+    - echo 'OMP_NUM_THREADS = "4"' >> conf/site.conf
+# TODO following to be enabled in all non-master branches; disable direct rw usage of SSTATE_DIR
+#   - echo 'INHERIT += "own-mirrors"' >> conf/site.conf
+#   - echo 'SSTATE_MIRRORS = "file://.* /mnt/caches/yocto_sstate_scarthgap/PATH;downloadfilename=PATH \n"' >> conf/site.conf
+# HACK this is a workaround for kdoctools using tempdir references: https://invent.kde.org/packaging/yocto-meta-kf6/-/issues/1
+    - bitbake -c cleansstate kdoctools kpackage kpty kitemviews kcompletion ktextwidgets
+    - bitbake packagegroup-kf6-full
+  artifacts:
+    expire_in: 3 days
+    when: always
+    paths:
+      - build-visionfive2/tmp/buildstats/
