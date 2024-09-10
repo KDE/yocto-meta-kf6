@@ -14,11 +14,14 @@ include:
   before_script:
     - repo init -u https://invent.kde.org/packaging/yocto-manifest.git -m scarthgap.xml
     - repo sync
+  after_script:
+    - cp build-visionfive2/tmp/log/cooker/visionfive2/console-latest.log bitbake.log
   artifacts:
     expire_in: 3 days
     when: always
     paths:
       - build-visionfive2/tmp/buildstats/
+      - bitbake.log
 
 yocto_scarthgap:
   extends: .yocto_base
@@ -43,3 +46,16 @@ yocto_scarthgap_seeding:
     - echo 'BB_NUMBER_THREADS = "4"' >> conf/site.conf
     - echo 'OMP_NUM_THREADS = "4"' >> conf/site.conf
     - bitbake packagegroup-kf6-full
+
+qa_testing:
+  stage: test
+  image: invent-registry.kde.org/sysadmin/ci-images/yocto-builder:latest
+  script:
+    - cat bitbake.log | grep -E "WARNING:|ERROR:" > bitbake.error
+    - "if [[ $(cat bitbake.error | grep 'WARNING:' -i) ]]; then cat bitbake.error; exit 1; fi"
+  allow_failure: true
+  artifacts:
+    expire_in: 3 days
+    when: always
+    paths:
+      - bitbake.error
