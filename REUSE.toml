@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+
+# handle license files similar to files in LICENSES
+[[annotations]]
+path = "conf/licenses/*"
+SPDX-FileCopyrightText = "None/Various Authors of the license files"
+SPDX-License-Identifier = "LicenseRef-LicenseText"
