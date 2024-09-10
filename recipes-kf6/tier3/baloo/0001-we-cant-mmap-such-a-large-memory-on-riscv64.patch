@@ -3,6 +3,9 @@ From: Justin Hammond <justin@dynam.ac>
 Date: Wed, 7 Jun 2023 04:42:04 +0000
 Subject: [PATCH] we cant mmap such a large memory on riscv64
 
+SPDX-FileCopyrightText: Justin Hammond <justin@dynam.ac>
+SPDX-License-Identifier: LGPL-2.1-or-later
+
 ---
  src/engine/database.cpp | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
