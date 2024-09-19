@@ -21,4 +21,4 @@ FILES:${PN} += " \
     ${libdir}/qml/org/kde/bluezqt/* \
 "
 
-RDEPENDS:${PN} += "bluez5"
+RDEPENDS:${PN} += "bluez5 bluez5-obex"
