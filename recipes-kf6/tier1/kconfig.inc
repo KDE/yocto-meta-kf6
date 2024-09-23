@@ -19,6 +19,7 @@ EXTRA_OECMAKE:class-native = " -DKCONFIG_USE_GUI=OFF"
 FILES:${PN} += " \
     ${libdir}/qml/org/kde/config/qmldir \
     ${libdir}/qml/org/kde/config/*.so \
+    ${libexecdir}/kf6/kconf_update \
 "
 
 FILES:${PN}-dev += " \

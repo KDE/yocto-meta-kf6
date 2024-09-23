@@ -20,6 +20,10 @@ DEPENDS = " \
     kservice \
 "
 
+RDEPENDS:${PN} += " \
+    kconfig \
+"
+
 require kded_metainfo.inc
 inherit kf6-cmake-framework
 inherit kf6-kdoctools
@@ -29,3 +33,8 @@ FILES_SOLIBSDEV = ""
 FILES:${PN} += " \
     ${libdir}/systemd/user/plasma-kded6.service \
 "
+
+do_configure:prepend() {
+    # fix KCONF_UPDATE_EXE definition so it points to the target's filesystem
+    sed -i "s#KCONF_UPDATE_EXE=\".*\"#KCONF_UPDATE_EXE=\"${libexecdir}/kf6/kconf_update\"#g" ${S}/src/CMakeLists.txt
+}
