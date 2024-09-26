@@ -36,7 +36,6 @@ yocto_scarthgap_seeding:
   extends: .yocto_base
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
-      when: never
   script:
     - MACHINE=visionfive2 . ./setup-environment
     - echo 'SSTATE_DIR = "/mnt/caches/yocto_sstate_scarthgap"' >> conf/site.conf
