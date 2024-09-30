@@ -9,6 +9,7 @@ PR = "r0"
 
 DEPENDS = " \
     qtbase \
+    kcrash \
     kconfig \
     kconfig-native \
     kconfigwidgets \
