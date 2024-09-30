@@ -52,8 +52,8 @@ qa_testing:
   stage: test
   image: invent-registry.kde.org/sysadmin/ci-images/yocto-builder:latest
   script:
-    - cat bitbake.log | grep -E "WARNING:|ERROR:" > bitbake.error
-    - "if [[ $(cat bitbake.error | grep 'WARNING:' -i) ]]; then cat bitbake.error; exit 1; fi"
+    - cat bitbake.log | grep -E "WARNING:|ERROR:" | grep -v "You are using a local hash equivalence server but have configured an sstate mirror" > bitbake.error
+    - "if [[ -f bitbake.error && $(cat bitbake.error | grep 'WARNING:' -i) ]]; then cat bitbake.error; exit 1; fi"
   allow_failure: true
   artifacts:
     expire_in: 3 days
