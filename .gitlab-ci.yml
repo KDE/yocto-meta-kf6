@@ -16,7 +16,7 @@ include:
     - repo init -u https://invent.kde.org/packaging/yocto-manifest.git -m scarthgap.xml
     - repo sync
   after_script:
-    - cp build-visionfive2/tmp/log/cooker/visionfive2/console-latest.log bitbake.log
+    - cp -L build-visionfive2/tmp/log/cooker/visionfive2/console-latest.log bitbake.log
   artifacts:
     expire_in: 3 days
     when: always
@@ -52,8 +52,15 @@ qa_testing:
   stage: test
   image: invent-registry.kde.org/sysadmin/ci-images/yocto-builder:latest
   script:
-    - cat bitbake.log | grep -E "WARNING:|ERROR:" | grep -v "You are using a local hash equivalence server but have configured an sstate mirror" > bitbake.error
-    - "if [[ -f bitbake.error && $(cat bitbake.error | grep 'WARNING:' -i) ]]; then cat bitbake.error; exit 1; fi"
+    - |-
+        cat bitbake.log | grep -E "WARNING:|ERROR:" | grep -v "You are using a local hash equivalence server but have configured an sstate mirror" > bitbake.error || true
+        if [[ -s bitbake.error ]]; then
+            echo "Bitbake warnings detected:"
+            cat bitbake.error
+            exit 1
+        else
+            echo "No warnings detected"
+        fi
   allow_failure: true
   artifacts:
     expire_in: 3 days
