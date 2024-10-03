@@ -26,12 +26,19 @@ inherit python3native
 inherit perlnative
 inherit reuse_license_checksums
 
-EXTRA_OECMAKE:class-native = " -DINSTALL_INTERNAL_TOOLS=ON"
+
+SRC_URI:append = " file://0001-Provide-option-to-enable-relocatable-docbook-files-o.patch"
+
+EXTRA_OECMAKE:class-native = " \
+    -DINSTALL_INTERNAL_TOOLS=ON \
+    -DRELOCATABLE_DOCBOOK_FILES=ON \
+"
 
 EXTRA_OECMAKE:class-target = " \
     -DMEINPROC6_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/meinproc6 \
     -DDOCBOOKL10NHELPER_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/docbookl10nhelper \
     -DCHECKXML6_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/checkXML6 \
+    -DRELOCATABLE_DOCBOOK_FILES=ON \
 "
 
 sysroot_stage_all:append:class-native () {
