@@ -26,9 +26,6 @@ inherit python3native
 inherit perlnative
 inherit reuse_license_checksums
 
-
-SRC_URI:append = " file://0001-Provide-option-to-enable-relocatable-docbook-files-o.patch"
-
 EXTRA_OECMAKE:class-native = " \
     -DINSTALL_INTERNAL_TOOLS=ON \
     -DRELOCATABLE_DOCBOOK_FILES=ON \
