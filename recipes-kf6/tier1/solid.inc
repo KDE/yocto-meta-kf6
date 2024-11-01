@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
 # SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
 # SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
-# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+# SPDX-FileCopyrightText: 2020-2024 Andreas Cord-Landwehr <cordlandwehr@kde.org>
 #
 # SPDX-License-Identifier: MIT
 
@@ -14,6 +14,8 @@ DEPENDS = "qtbase bison-native"
 require solid_metainfo.inc
 inherit kf6-cmake-framework
 inherit reuse_license_checksums
+
+SRC_URI:append = " file://0001-Support-reproducible-builds-by-omitting-host-paths-i.patch"
 
 FILES:${PN} += " \
     ${libdir}/qml/org/kde/solid/qmldir \

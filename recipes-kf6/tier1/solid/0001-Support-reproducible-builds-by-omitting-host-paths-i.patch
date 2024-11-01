@@ -1,0 +1,43 @@
+From f7a9accf646cc885b9f547ebbecad9772e8ef190 Mon Sep 17 00:00:00 2001
+From: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+Date: Fri, 1 Nov 2024 17:26:09 +0100
+Subject: [PATCH] Support reproducible builds by omitting host paths in
+ bison/yacc outputs
+
+The compile options disable generation of absolute paths into the header
+files which break reproducible builds because the build artifacts are
+tied to the host system.
+
+Upstream-Status: Backport [https://invent.kde.org/frameworks/solid/-/merge_requests/184]
+
+SPDX-FileCopyrightText: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+SPDX-License-Identifier: MIT
+Signed-off-by: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+---
+ src/solid/devices/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/solid/devices/CMakeLists.txt b/src/solid/devices/CMakeLists.txt
+index 328ea48c..3e525cec 100644
+--- a/src/solid/devices/CMakeLists.txt
++++ b/src/solid/devices/CMakeLists.txt
+@@ -90,14 +90,14 @@ ecm_qt_declare_logging_category(solid_LIB_SRCS
+ bison_target(SolidParser
+              devices/predicate_parser.y
+              ${CMAKE_CURRENT_BINARY_DIR}/predicate_parser.c
+-             COMPILE_FLAGS "-p Solid -d -b predicate_parser"
++             COMPILE_FLAGS "-p Solid -d -b predicate_parser --no-lines"
+ )
+ set_property(SOURCE ${CMAKE_CURRENT_BINARY_DIR}/predicate_parser.h PROPERTY SKIP_AUTOMOC TRUE) # don't run automoc on this file
+ 
+ flex_target(SolidLexer
+             devices/predicate_lexer.l
+             ${CMAKE_CURRENT_BINARY_DIR}/predicate_lexer.c
+-            COMPILE_FLAGS "-P Solid"
++            COMPILE_FLAGS "-P Solid --noline"
+ )
+ add_flex_bison_dependency(SolidLexer SolidParser)
+ list(APPEND solid_LIB_SRCS ${BISON_SolidParser_OUTPUTS} ${FLEX_SolidLexer_OUTPUTS})
+-- 
+2.43.0
+
