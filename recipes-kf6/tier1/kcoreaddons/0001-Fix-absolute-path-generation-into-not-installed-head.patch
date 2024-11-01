@@ -1,0 +1,36 @@
+From 8b1e01c11590d1d83e5c4c42590587941cb6b02d Mon Sep 17 00:00:00 2001
+From: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+Date: Thu, 31 Oct 2024 11:44:35 +0100
+Subject: [PATCH] Fix absolute path generation into (not installed) header
+
+This fixes a Yocto QA issue that checks that all built artifacts do not
+contain any absolute path reference to the build folder. Although this
+is not a public header, the absolute patch can cause problems when
+splitting the debug symbols and analyzing coredumps on a different
+system than the build system.
+
+Upstream-Status: Backport [https://invent.kde.org/frameworks/kcoreaddons/-/merge_requests/459]
+
+SPDX-FileCopyrightText: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+SPDX-License-Identifier: MIT
+Signed-off-by: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+---
+ src/lib/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lib/CMakeLists.txt b/src/lib/CMakeLists.txt
+index 13176db..521bf40 100644
+--- a/src/lib/CMakeLists.txt
++++ b/src/lib/CMakeLists.txt
+@@ -97,7 +97,7 @@ endif ()
+ if(HAVE_QTDBUS)
+     set(_dbus_SRCS)
+ 
+-    set_source_files_properties(io/org.freedesktop.portal.FileTransfer.xml PROPERTIES INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/io/dbustypes_p.h)
++    set_source_files_properties(io/org.freedesktop.portal.FileTransfer.xml PROPERTIES INCLUDE io/dbustypes_p.h)
+     qt_add_dbus_interface(_dbus_SRCS io/org.freedesktop.portal.FileTransfer.xml io/org.freedesktop.portal.FileTransfer)
+ 
+     set_source_files_properties(io/org.kde.KIOFuse.VFS.xml PROPERTIES NO_NAMESPACE TRUE)
+-- 
+2.43.0
+
