@@ -8,6 +8,8 @@
 LICENSE = "LGPL-2.0-or-later & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL) & BSD-3-Clause"
 PR = "r0"
 
+SRC_URI:append = " file://0001-Allow-explicit-setting-of-Python3-fallback-executibl.patch"
+
 DEPENDS:class-native = " \
     qtbase \
     gettext-native \
@@ -25,6 +27,7 @@ inherit python3native
 inherit reuse_license_checksums
 
 EXTRA_OECMAKE:class-native = " -DBUILD_WITH_QTSCRIPT=OFF -DLibIntl_SEARCH_PATH=/usr/include"
+EXTRA_OECMAKE:append = " -DFALLBACK_KI18N_PYTHON_EXECUTABLE=${bindir}/python3-native/python3"
 
 RDEPENDS:${PN}:class-target = " iso-codes"
 
