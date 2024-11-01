@@ -5,6 +5,8 @@
 LICENSE = "CC0-1.0 & LGPL-2.0-or-later"
 PR = "r0"
 
+SRC_URI:append = " file://0001-Fix-absolute-path-generation-in-not-installed-header.patch"
+
 DEPENDS += " \
     qtbase \
     kwindowsystem \

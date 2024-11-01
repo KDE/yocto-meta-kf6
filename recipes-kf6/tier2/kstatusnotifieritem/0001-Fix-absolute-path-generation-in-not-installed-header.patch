@@ -1,0 +1,38 @@
+From 60e6b2a1b458cbea454b43372c83d5947410d8d1 Mon Sep 17 00:00:00 2001
+From: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+Date: Thu, 31 Oct 2024 12:48:07 +0100
+Subject: [PATCH] Fix absolute path generation in (not installed) header
+
+This fixes a Yocto QA issue that checks that all built artifacts do not
+contain any absolute path reference to the build folder. Although this
+is not a public header, the absolute patch can cause problems when
+splitting the debug symbols and analyzing coredumps on a different
+system than the build system
+
+Upstream-Status: Backport [https://invent.kde.org/frameworks/kstatusnotifieritem/-/merge_requests/22]
+
+SPDX-FileCopyrightText: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+SPDX-License-Identifier: MIT
+Signed-off-by: Andreas Cord-Landwehr <cordlandwehr@kde.org>
+---
+ src/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 6c7f412..00c81ca 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -35,8 +35,8 @@ ecm_qt_declare_logging_category(KF6StatusNotifierItem
+ if (HAVE_DBUS)
+    set(HAVE_DBUSMENUQT 1)
+    qt_add_dbus_adaptor(dbusmenu_qt_SRCS
+-     ${CMAKE_CURRENT_SOURCE_DIR}/libdbusmenu-qt/com.canonical.dbusmenu.xml
+-     ${CMAKE_CURRENT_SOURCE_DIR}/libdbusmenu-qt/dbusmenuexporterdbus_p.h DBusMenuExporterDBus
++     libdbusmenu-qt/com.canonical.dbusmenu.xml
++     libdbusmenu-qt/dbusmenuexporterdbus_p.h DBusMenuExporterDBus
+    )
+ 
+    target_sources(KF6StatusNotifierItem PRIVATE
+-- 
+2.43.0
+
