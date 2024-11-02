@@ -38,6 +38,7 @@ EXTRA_OECMAKE:class-target = " \
     -DRELOCATABLE_DOCBOOK_FILES=ON \
 "
 
+# TODO split recipe for native and target to avoid stripping warnings for applications
 sysroot_stage_all:append:class-native () {
     mkdir -p ${SYSROOT_DESTDIR}${bindir}
     cp ${B}/bin/docbookl10nhelper ${SYSROOT_DESTDIR}${bindir}
@@ -49,6 +50,11 @@ sysroot_stage_all:append:class-target () {
     cp ${STAGING_BINDIR_NATIVE}/meinproc6 ${SYSROOT_DESTDIR}${bindir}
 }
 
+do_compile:append() {
+    # TODO this reworks the all-l18n.xml paths to be host-independent
+    # a better solution is to change this directly in docbookl18nhelper.cpp
+    sed -i 's:${RECIPE_SYSROOT}::g' ${B}/src/customization/xsl/all-l10n.xml
+}
 
 FILES:${PN} += " \
     ${datadir}/kf6/kdoctools/customization/* \
