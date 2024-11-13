@@ -17,8 +17,6 @@ inherit reuse_license_checksums
 inherit mime-xdg
 inherit mime
 
-SRC_URI:append = " file://0001-Fix-absolute-path-generation-into-not-installed-head.patch"
-
 FILES:${PN} += " \
     ${datadir}/mime/packages/kde5.xml \
     ${datadir}/kf6/licenses/* \
