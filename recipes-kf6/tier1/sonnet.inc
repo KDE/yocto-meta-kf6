@@ -20,11 +20,6 @@ RDEPENDS:${PN}:append:class-target = " \
     aspell \
 "
 
-SRC_URI:append = " \
-    file://0001-Provide-SONNET_NO_BACKENDS-option-to-deactivate-buil.patch \
-    file://0002-Remove-ASPELL-runtime-dependency-from-plugin-buildin.patch \
-"
-
 require sonnet_metainfo.inc
 inherit kf6-cmake-framework
 inherit reuse_license_checksums
