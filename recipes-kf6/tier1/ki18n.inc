@@ -8,8 +8,6 @@
 LICENSE = "LGPL-2.0-or-later & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL) & BSD-3-Clause"
 PR = "r0"
 
-SRC_URI:append = " file://0001-Allow-explicit-setting-of-Python3-fallback-executibl.patch"
-
 DEPENDS:class-native = " \
     qtbase \
     gettext-native \
