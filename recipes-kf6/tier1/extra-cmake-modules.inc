@@ -16,6 +16,10 @@ SRC_URI:append = " file://0001-Fix-reproducible-build-issue-with-ECMGeneratedHea
 
 CLEANBROKEN = "1"
 
+EXTRA_OECMAKE:append = " \
+    -DBUILD_TESTING=OFF \
+"
+
 INSANE_SKIP:${PN}-dev = "file-rdeps"
 RDEPENDS:${PN}-dev = ""
 
