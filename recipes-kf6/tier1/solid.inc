@@ -15,8 +15,6 @@ require solid_metainfo.inc
 inherit kf6-cmake-framework
 inherit reuse_license_checksums
 
-SRC_URI:append = " file://0001-Support-reproducible-builds-by-omitting-host-paths-i.patch"
-
 FILES:${PN} += " \
     ${libdir}/qml/org/kde/solid/qmldir \
     ${libdir}/qml/org/kde/solid/*.so \
