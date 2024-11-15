@@ -11,4 +11,9 @@ do_install:append() {
             sed -i -e 's|${RECIPE_SYSROOT}/usr|\$\{_IMPORT_PREFIX\}|g' \
                 {} \;
     fi
+    if [ "0" -ne $(find ${D} \( -name "*.pc" \) | wc -l) ]; then
+        find ${D} \( -name "*.pc" \) -exec \
+            sed -i -e 's|-I${RECIPE_SYSROOT}/usr/|-I\$\{prefix\}/|g' \
+                {} \;
+    fi
 }
