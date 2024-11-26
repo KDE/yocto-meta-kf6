@@ -16,6 +16,8 @@ DEPENDS += " \
     extra-cmake-modules \
 "
 
+RRECOMMENDS:${PN} += "phonon-backend-vlc"
+
 SRC_URI = "https://download.kde.org/stable/phonon/${PV}/phonon-${PV}.tar.xz"
 
 inherit qt6-cmake
