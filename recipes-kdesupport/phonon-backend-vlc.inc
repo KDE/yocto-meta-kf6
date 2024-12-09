@@ -17,7 +17,7 @@ DEPENDS += " \
 
 RDEPENDS:${PN} += "vlc"
 
-SRC_URI = "https://download.kde.org/Attic/phonon/${BPN}/${PV}/phonon-backend-vlc-${PV}.tar.xz"
+SRC_URI = "https://download.kde.org/stable/phonon/${BPN}/${PV}/${BPN}-${PV}.tar.xz"
 
 inherit qt6-cmake
 EXTRA_OECMAKE += " \
