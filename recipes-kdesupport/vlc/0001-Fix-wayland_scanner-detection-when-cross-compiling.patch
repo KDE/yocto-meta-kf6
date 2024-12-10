@@ -1,0 +1,49 @@
+From a19672feb578166a7057e6d6ed7da49fa103c76c Mon Sep 17 00:00:00 2001
+From: Marc Ferland <marc.ferland@sonatest.com>
+Date: Wed, 18 Dec 2024 09:20:52 -0500
+Subject: [PATCH] Fix wayland_scanner detection when cross-compiling
+
+The current detection mecanism for the wayland_scanner binary fails
+when cross-compiling. For example, when calling:
+
+    ${PKG_CONFIG} wayland-scanner --variable wayland_scanner
+
+from the configure script, we get: /usr/bin/wayland_scanner, which
+points to the host system.
+
+This patch replaces the detection logic with a variable which is set
+from the recipe with the actual path to the scanner binary.
+
+SPDX-FileCopyrightText: Marc Ferland <marc.ferland@sonatest.com>
+SPDX-License-Identifier: MIT
+
+Upstream-Status: Inappropriate [OE-specific]
+
+Signed-off-by: Marc Ferland <marc.ferland@sonatest.com>
+---
+ configure.ac | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 69beb77ac0..2dbc168ad4 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -3195,13 +3195,8 @@ AS_IF([test "${enable_wayland}" = "yes"], [
+     ])
+ 
+     AC_MSG_CHECKING([for the Wayland scanner])
+-    PKG_CHECK_EXISTS([wayland-scanner], [
+-      WAYLAND_SCANNER="$(${PKG_CONFIG} wayland-scanner --variable wayland_scanner)"
+-      AC_MSG_RESULT([${WAYLAND_SCANNER}])
+-    ], [
+-      AC_MSG_RESULT([not found])
+-      AC_MSG_ERROR([$(${PKG_CONFIG} --print-errors wayland-scanner)])
+-    ])
++    AC_MSG_CHECKING([for the Wayland scanner])
++    AC_PATH_PROG(WAYLAND_SCANNER, [wayland-scanner], [no])
+ 
+     have_wayland="yes"
+ 
+-- 
+2.34.1
+
