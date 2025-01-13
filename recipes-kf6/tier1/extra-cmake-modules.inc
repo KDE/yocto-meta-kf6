@@ -12,8 +12,6 @@ require extra-cmake-modules_metainfo.inc
 inherit qt6-cmake
 inherit reuse_license_checksums
 
-SRC_URI:append = " file://0001-Fix-reproducible-build-issue-with-ECMGeneratedHeader.patch"
-
 CLEANBROKEN = "1"
 
 EXTRA_OECMAKE:append = " \
