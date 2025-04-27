@@ -11,10 +11,10 @@ SPDX-License-Identifier: LGPL-2.1-or-later
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/src/engine/database.cpp b/src/engine/database.cpp
-index f0e0af1..3db2e6c 100644
+index a255a8d..28f4e1a 100644
 --- a/src/engine/database.cpp
 +++ b/src/engine/database.cpp
-@@ -108,16 +108,16 @@ bool Database::open(OpenMode mode)
+@@ -109,16 +109,16 @@ Database::OpenResult Database::open(OpenMode mode)
       * Valgrind by default (without recompiling) limits the mmap size:
       * <= 3.9: 32 GByte, 3.9 to 3.12: 64 GByte, 3.13: 128 GByte
       */
@@ -31,6 +31,6 @@ index f0e0af1..3db2e6c 100644
      }
 -    const size_t maximalSizeInBytes = sizeInGByte * size_t(1024) * size_t(1024) * size_t(1024);
 +    const size_t maximalSizeInBytes = sizeInGByte << 30;
-     mdb_env_set_mapsize(m_env, maximalSizeInBytes);
+     mdb_env_set_mapsize(env, maximalSizeInBytes);
  
      // Set MDB environment flags
