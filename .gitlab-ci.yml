@@ -29,6 +29,7 @@ yocto_scarthgap:
   rules:
     - if: $CI_COMMIT_BRANCH != "master"
   script:
+    - cd sources/meta-kf6/ && git checkout $CI_COMMIT_SHA && cd - && echo $CI_COMMIT_SHA
     - MACHINE=visionfive2 . ./setup-environment
     - echo 'SSTATE_MIRRORS = "file://.* file:///mnt/caches/yocto_sstate_scarthgap/PATH"' >> conf/site.conf
 # limit computation: ncpus/4
