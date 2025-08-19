@@ -3,4 +3,4 @@
 
 require ${PN}.inc
 SRC_URI = "https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-${PV}.tar.xz"
-SRC_URI[sha256sum] = "da3fbbe3fa5603f9dc9aabe948a6fc8c3b451edd1958138628e96c83649c1f16"
+SRC_URI[sha256sum] = "2567472671ad5d989f88b51baef9dd59353a5e7c3f2ed7e6b989755cb9004233"
