@@ -15,6 +15,7 @@ DEPENDS = " \
     kcoreaddons \
     kcoreaddons-native \
     kitemmodels \
+    kwindowsystem \
 "
 
 require krunner_metainfo.inc
