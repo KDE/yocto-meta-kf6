@@ -7,6 +7,8 @@
 LICENSE = "LGPL-2.0-or-later & LGPL-2.1-or-later & BSD-3-Clause"
 PR = "r0"
 
+SRC_URI:append = " file://0001-Fix-build-when-KAUTH_BUILD_CODEGENERATOR_ONLY-ON.patch"
+
 DEPENDS += " \
     extra-cmake-modules \
     qtbase \
