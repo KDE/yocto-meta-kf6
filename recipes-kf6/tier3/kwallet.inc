@@ -23,6 +23,7 @@ DEPENDS = " \
     kwindowsystem \
     libgcrypt \
     qca \
+    libsecret \
 "
 
 EXTRA_OECMAKE += " \
