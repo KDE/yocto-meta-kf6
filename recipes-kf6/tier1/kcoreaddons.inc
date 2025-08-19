@@ -27,3 +27,5 @@ FILES:${PN} += " \
 FILES:${PN}-dev += " \
     ${bindir}/desktoptojson \
 "
+
+EXTRA_OECMAKE += " -DBUILD_PYTHON_BINDINGS=OFF"

@@ -27,3 +27,5 @@ inherit reuse_license_checksums
 FILES:${PN} += " \
     ${libdir}/plugins/kf6/kguiaddons/kmodifierkey/ \
 "
+
+EXTRA_OECMAKE += " -DBUILD_PYTHON_BINDINGS=OFF"

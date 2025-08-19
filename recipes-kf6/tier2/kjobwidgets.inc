@@ -20,3 +20,5 @@ DEPENDS = " \
 require kjobwidgets_metainfo.inc
 inherit kf6-cmake-framework
 inherit reuse_license_checksums
+
+EXTRA_OECMAKE += " -DBUILD_PYTHON_BINDINGS=OFF"

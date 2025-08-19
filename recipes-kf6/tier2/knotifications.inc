@@ -23,3 +23,5 @@ inherit reuse_license_checksums
 FILES:${PN} += " \
     ${libdir}/qml/org/kde/notification/* \
 "
+
+EXTRA_OECMAKE += " -DBUILD_PYTHON_BINDINGS=OFF"

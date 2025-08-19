@@ -21,3 +21,5 @@ RRECOMMENDS:${PN} += "${PN}-data"
 FILES:${PN}-data += " \
     ${datadir}/kf6/kcharselect/kcharselect-data \
 "
+
+EXTRA_OECMAKE += " -DBUILD_PYTHON_BINDINGS=OFF"
