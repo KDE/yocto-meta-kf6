@@ -11,6 +11,9 @@ This fails on my side with:
 | Call Stack (most recent call first):
 |   src/CMakeLists.txt:140 (ecm_generate_qdoc)
 
+SPDX-FileCopyrightText: Marc Ferland <marc.ferland@sonatest.com>
+SPDX-License-Identifier: MIT
+
 Upstream-Status: Submitted [https://invent.kde.org/frameworks/kauth/-/merge_requests/87]
 
 ---
