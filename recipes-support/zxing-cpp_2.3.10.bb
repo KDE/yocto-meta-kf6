@@ -2,4 +2,4 @@
 # SPDX-License-Identifier: CC0-1.0
 
 require ${BPN}.inc
-SRCREV = "99a83b3a6ac514d7f850dda7fa24cddb5120c7e2"
+SRCREV = "d6068bcebeb8fd9f0d35a99b00d202be86a14dbe"
