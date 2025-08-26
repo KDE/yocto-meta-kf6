@@ -12,4 +12,5 @@ inherit kf6-cmake-framework
 FILES:${PN} += " \
     ${datadir}/icons/oxygen/index.theme \
     ${datadir}/icons/oxygen/base/*/*/*.png \
+    ${datadir}/icons/oxygen/applets/*/*.svg \
 "
