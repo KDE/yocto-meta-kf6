@@ -11,6 +11,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b58872aaf3a9d51c1f002b9d7940f4f1"
 
 inherit autotools
 
-SRCREV = "dafd3dd813fb448eab0272f139d45a6b894912df"
+SRCREV = "500d7af6106713610a0f8b2d96aefa81912b96bc"
 SRC_URI = "git://github.com/dmtx/libdmtx;nobranch=1;protocol=https"
 S = "${WORKDIR}/git"
