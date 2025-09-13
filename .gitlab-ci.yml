@@ -47,6 +47,7 @@ yocto_scarthgap_seeding:
     - MACHINE=visionfive2 . ./setup-environment
 # host local cache
     - echo 'SSTATE_DIR = "/mnt/yocto_sstate_scarthgap"' >> conf/site.conf
+    - echo 'INHERIT += "rm_work"' >> conf/site.conf
 # limit computation: ncpus/4
     - echo 'BB_NUMBER_THREADS = "4"' >> conf/site.conf
     - echo 'OMP_NUM_THREADS = "4"' >> conf/site.conf
