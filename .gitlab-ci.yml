@@ -36,7 +36,8 @@ yocto_scarthgap:
   script:
     - cd sources/meta-kf6/ && git checkout $CI_COMMIT_SHA && cd - && echo $CI_COMMIT_SHA
     - MACHINE=visionfive2 . ./setup-environment
-    - echo 'SSTATE_MIRRORS = "file://.* file:///mnt/yocto_sstate_scarthgap/PATH"' >> conf/site.conf
+    - echo 'SSTATE_MIRRORS += "file://.* file:///mnt/yocto_sstate_scarthgap/PATH"' >> conf/site.conf
+    - echo 'SSTATE_MIRRORS += "file://.* https://storage.kde.org/yocto-sstate/scarthgap/PATH;downloadfilename=PATH"' >> conf/site.conf
     - echo 'INHERIT += "rm_work"' >> conf/site.conf
 # limit computation: ncpus/4
     - echo 'BB_NUMBER_THREADS = "4"' >> conf/site.conf
@@ -52,7 +53,10 @@ yocto_scarthgap_seeding:
       aud: https://tokens.kde.org
   script:
     - MACHINE=visionfive2 . ./setup-environment
-# host local cache
+# host local cache: for sstate sharing without hash equiv server only basic hash works
+    - echo 'BB_HASHSERVE = ""' >> conf/site.conf
+    - echo 'BB_SIGNATURE_HANDLER = "OEBasicHash"' >> conf/site.conf
+    - echo 'SSTATE_MIRRORS += "file://.* https://storage.kde.org/yocto-sstate/scarthgap/PATH;downloadfilename=PATH"' >> conf/site.conf
     - echo 'SSTATE_DIR = "/mnt/yocto_sstate_scarthgap"' >> conf/site.conf
     - echo 'INHERIT += "rm_work"' >> conf/site.conf
 # limit computation: ncpus/4
