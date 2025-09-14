@@ -14,6 +14,10 @@ include:
     - LargeVM
     - amd64
   before_script:
+# generic sysadmin tooling
+    - pip3 install --break-system-packages minio
+    - git clone https://invent.kde.org/sysadmin/ci-utilities.git
+# Yocto Repo setup
     - repo init -u https://invent.kde.org/packaging/yocto-manifest.git -m scarthgap.xml
     - repo sync
   after_script:
@@ -43,6 +47,9 @@ yocto_scarthgap_seeding:
   extends: .yocto_base
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
+  id_tokens:
+    MINIO_OIDC:
+      aud: https://tokens.kde.org
   script:
     - MACHINE=visionfive2 . ./setup-environment
 # host local cache
@@ -52,6 +59,8 @@ yocto_scarthgap_seeding:
     - echo 'BB_NUMBER_THREADS = "4"' >> conf/site.conf
     - echo 'OMP_NUM_THREADS = "4"' >> conf/site.conf
     - bitbake packagegroup-kf6-full
+# upload to shared sstate storage
+    - ${CI_PROJECT_DIR}/ci-utilities/sync-s3-folder.py --mode upload --local /mnt/yocto_sstate_scarthgap --remote storage.kde.org/yocto-sstate/scarthgap/ --verbose
 
 qa_testing:
   stage: test
