@@ -8,13 +8,15 @@ LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=fbc093901857fcd118f065f900982c24"
 
 DEPENDS = " \
-    botan \
-    cyrus-sasl \
-    libgcrypt \
-    nss \
     qtbase \
     qt5compat \
 "
+
+PACKAGECONFIG = "botan cyrus-sasl libgcrypt nss"
+PACKAGECONFIG[botan] = ",,botan"
+PACKAGECONFIG[cyrus-sals] = ",,cyrus-sasl"
+PACKAGECONFIG[gcrypt] = ",,libgcrypt"
+PACKAGECONFIG[nss] = ",,nss"
 
 SRC_URI = "git://invent.kde.org/libraries/${BPN};nobranch=1;protocol=https"
 
