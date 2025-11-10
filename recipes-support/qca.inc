@@ -14,8 +14,8 @@ DEPENDS = " \
 
 PACKAGECONFIG = "botan cyrus-sasl libgcrypt nss"
 PACKAGECONFIG[botan] = ",,botan"
-PACKAGECONFIG[cyrus-sals] = ",,cyrus-sasl"
-PACKAGECONFIG[gcrypt] = ",,libgcrypt"
+PACKAGECONFIG[cyrus-sasl] = ",,cyrus-sasl"
+PACKAGECONFIG[libgcrypt] = ",,libgcrypt"
 PACKAGECONFIG[nss] = ",,nss"
 
 SRC_URI = "git://invent.kde.org/libraries/${BPN};nobranch=1;protocol=https"
