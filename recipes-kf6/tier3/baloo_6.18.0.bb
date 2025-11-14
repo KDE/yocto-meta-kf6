@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+require ${PN}.inc
+SRC_URI = "https://download.kde.org/stable/frameworks/6.18/baloo-6.18.0.tar.xz"
+SRC_URI[sha256sum] = "680b01ed7c789b7ef0ee8f14faffaf2e8bdf87a56a26eb2a6f95a472e5630903"
+

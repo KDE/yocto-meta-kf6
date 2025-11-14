@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+require ${PN}.inc
+SRC_URI = "https://download.kde.org/stable/frameworks/6.18/ktexteditor-6.18.0.tar.xz"
+SRC_URI[sha256sum] = "4f8abb0436a0c6ca501f7be391975756cb07f8e403d3afe7ec2f02d12bf7b516"
+
