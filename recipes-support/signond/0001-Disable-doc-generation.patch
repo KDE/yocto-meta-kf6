@@ -1,0 +1,47 @@
+From d17c55d87d8bade0c7e607455e87c5043afcf0e7 Mon Sep 17 00:00:00 2001
+From: Marc Ferland <marc.ferland@sonatest.com>
+Date: Fri, 14 Nov 2025 15:41:00 -0500
+Subject: [PATCH] Disable doc generation
+
+Upstream-Status: Inappropriate [OE-Specific]
+
+Signed-off-by: Marc Ferland <marc.ferland@sonatest.com>
+---
+ lib/SignOn/SignOn.pro   | 1 -
+ lib/plugins/plugins.pro | 1 -
+ signon.pro              | 2 --
+ 3 files changed, 4 deletions(-)
+
+diff --git a/lib/SignOn/SignOn.pro b/lib/SignOn/SignOn.pro
+index f6a1d61..e22512a 100644
+--- a/lib/SignOn/SignOn.pro
++++ b/lib/SignOn/SignOn.pro
+@@ -4,4 +4,3 @@ SUBDIRS = \
+     libsignon-qt-shared.pro \
+     libsignon-qt-static.pro
+ 
+-include(doc/doc.pri)
+diff --git a/lib/plugins/plugins.pro b/lib/plugins/plugins.pro
+index dad7906..3ca7edb 100644
+--- a/lib/plugins/plugins.pro
++++ b/lib/plugins/plugins.pro
+@@ -3,5 +3,4 @@ CONFIG += ordered
+ SUBDIRS = signon-plugins.pro signon-plugins-common
+ 
+ TARGET=signon-plugins
+-include(doc/doc.pri)
+ 
+diff --git a/signon.pro b/signon.pro
+index 9d8968f..c40b71c 100644
+--- a/signon.pro
++++ b/signon.pro
+@@ -7,6 +7,4 @@ tests.depends = lib src
+ 
+ include( common-installs-config.pri )
+ 
+-include( doc/doc.pri )
+-
+ # End of File
+-- 
+2.34.1
+
