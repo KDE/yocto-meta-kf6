@@ -7,17 +7,10 @@ LICENSE = "BSD-3-Clause & LGPL-2.0-or-later & LGPL-2.1-or-later"
 PR = "r0"
 
 DEPENDS += " \
+    hunspell \
     qtbase \
     qtdeclarative \
     sonnet-native \
-"
-
-DEPENDS:append:class-target = " \
-    aspell \
-"
-
-RDEPENDS:${PN}:append:class-target = " \
-    aspell \
 "
 
 require sonnet_metainfo.inc
