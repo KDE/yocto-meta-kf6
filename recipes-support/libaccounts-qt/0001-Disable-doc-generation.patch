@@ -1,0 +1,27 @@
+From 213150cb640be55ae7db34ae7e80375c94f21b89 Mon Sep 17 00:00:00 2001
+From: Marc Ferland <marc.ferland@sonatest.com>
+Date: Fri, 14 Nov 2025 15:05:34 -0500
+Subject: [PATCH] Disable doc generation
+
+Upstream-Status: Inappropriate [OE-Specific]
+
+Signed-off-by: Marc Ferland <marc.ferland@sonatest.com>
+---
+ accounts-qt.pro | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/accounts-qt.pro b/accounts-qt.pro
+index dfaaacc..11b0563 100644
+--- a/accounts-qt.pro
++++ b/accounts-qt.pro
+@@ -5,7 +5,6 @@ CONFIG   += ordered
+ SUBDIRS  += Accounts tests
+ 
+ include( common-project-config.pri )
+-include( doc/doc.pri )
+ 
+ DISTNAME = $${PROJECT_NAME}-$${PROJECT_VERSION}
+ EXCLUDES = \
+-- 
+2.34.1
+
