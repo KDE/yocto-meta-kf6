@@ -30,6 +30,7 @@ DEPENDS = " \
     kpackage \
     kpackage-native \
     kirigami \
+    syndication \
 "
 
 require knewstuff_metainfo.inc
