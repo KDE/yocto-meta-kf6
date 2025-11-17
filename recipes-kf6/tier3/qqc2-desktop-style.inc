@@ -15,6 +15,7 @@ DEPENDS = " \
     kcoreaddons-native \
     kconfig-native \
     kauth-native \
+    sonnet \
 "
 
 require qqc2-desktop-style_metainfo.inc
