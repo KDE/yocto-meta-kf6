@@ -16,7 +16,8 @@ DEPENDS += " \
     extra-cmake-modules \
 "
 
-RRECOMMENDS:${PN} += "phonon-backend-vlc"
+# vlc needs porting to ffmpeg >= 7, disabling support for now
+# RRECOMMENDS:${PN} += "phonon-backend-vlc"
 
 SRC_URI = "https://download.kde.org/stable/phonon/${PV}/phonon-${PV}.tar.xz"
 
