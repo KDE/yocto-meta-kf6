@@ -39,7 +39,6 @@ kdbusaddons \
 kidletime \
 kirigami \
 kwidgetsaddons \
-extra-cmake-modules \
 ki18n \
 kguiaddons \
 kservice \
