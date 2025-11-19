@@ -3,4 +3,4 @@
 
 require ${PN}.inc
 SRC_URI = "https://download.kde.org/stable/release-service/${PV}/src/kaccounts-integration-${PV}.tar.xz"
-SRC_URI[sha256sum] = "7147947e4a236760ced2e65f9e4b7daffdad3e4e865a142f491a69fbaad5a6ea"
+SRC_URI[sha256sum] = "7fa0343f0c3f59375c4817cbd29b0fed7e45cbb31f4956e6d3f62c0abe2a1c8b"
