@@ -3,4 +3,4 @@
 
 require ${PN}.inc
 SRC_URI = "https://download.kde.org/stable/release-service/${PV}/src/libkexiv2-${PV}.tar.xz"
-SRC_URI[sha256sum] = "9bb4e5858f35d0dba813ade3c0ff6e7fe750b0930d60a7f4609b48c9563d45eb"
+SRC_URI[sha256sum] = "0806898554b62a6f834d33bb481923d82bde91b1692ba7b146fec94b9a503d03"
