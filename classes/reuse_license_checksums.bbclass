@@ -23,7 +23,10 @@ do_populate_lic:prepend() {
         ],
         'LGPL-3.0-only': [ 'c51d3eef3be114124d11349ca0d7e117' ],
         'LGPL-3.0-or-later': [ 'c51d3eef3be114124d11349ca0d7e117' ],
-        'GPL-2.0-only': [ '93e64b4a83c7e441e48bbdeeea05c977' ],
+        'GPL-2.0-only': [
+	    "93e64b4a83c7e441e48bbdeeea05c977",
+	    "9e2385fe012386d34dcc5c9863070881",
+        ],
         'GPL-2.0-or-later': [ 
             "fed54355545ffd980b814dab4a3b312c", 
             "9e2385fe012386d34dcc5c9863070881",
