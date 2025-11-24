@@ -11,6 +11,7 @@ PR = "r0"
 DEPENDS = " \
     qtbase \
     karchive \
+    libavif \
 "
 
 require kimageformats_metainfo.inc
