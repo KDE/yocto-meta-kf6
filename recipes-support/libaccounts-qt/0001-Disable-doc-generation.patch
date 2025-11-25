@@ -3,6 +3,9 @@ From: Marc Ferland <marc.ferland@sonatest.com>
 Date: Fri, 14 Nov 2025 15:05:34 -0500
 Subject: [PATCH] Disable doc generation
 
+SPDX-FileCopyrightText: Marc Ferland <marc.ferland@sonatest.com>
+SPDX-License-Identifier: MIT
+
 Upstream-Status: Inappropriate [OE-Specific]
 
 Signed-off-by: Marc Ferland <marc.ferland@sonatest.com>

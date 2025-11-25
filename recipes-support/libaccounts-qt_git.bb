@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Marc Ferland <marc.ferland@sonatest.com>
+#
+# SPDX-License-Identifier: MIT
+
 SUMMARY = "Accounts management library for Qt applications"
 DESCRIPTION = "This project is a library for managing accounts which can be used from Qt \
 applications. It is part of the accounts-sso project."

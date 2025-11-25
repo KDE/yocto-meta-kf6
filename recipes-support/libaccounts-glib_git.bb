@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Marc Ferland <marc.ferland@sonatest.com>
+#
+# SPDX-License-Identifier: MIT
+
 SUMMARY = "Accounts management library for GLib applications"
 DESCRIPTION = "This project is a library for managing accounts which can be used from GLib \
 applications. It is part of the accounts-sso project."

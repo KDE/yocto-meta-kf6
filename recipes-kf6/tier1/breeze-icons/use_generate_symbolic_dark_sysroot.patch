@@ -1,5 +1,8 @@
 Upstream-Status: Inappropriate [OE-Specific]
 
+SPDX-FileCopyrightText: Marc Ferland <marc.ferland@sonatest.com>
+SPDX-License-Identifier: MIT
+
 Signed-off-by: Marc Ferland <marc.ferland@sonatest.com>
 
 Index: breeze-icons-6.18.0/icons-dark/CMakeLists.txt

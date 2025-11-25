@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Marc Ferland <marc.ferland@sonatest.com>
+#
+# SPDX-License-Identifier: MIT
+
 SUMMARY = "SignOn daemon"
 DESCRIPTION = "The SignOn daemon is a D-Bus service which performs user authentication on \
 behalf of its clients."

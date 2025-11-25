@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Marc Ferland <marc.ferland@sonatest.com>
+#
+# SPDX-License-Identifier: MIT
 
 SUMMARY = "KAccounts Integration"
 DESCRIPTION = "Integration library and QML module for Accounts-SSO and SignOn-SSO"
