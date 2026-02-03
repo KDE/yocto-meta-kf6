@@ -35,7 +35,8 @@ do_populate_lic:prepend() {
         'GPL-3.0-or-later': [ '1c76c4cc354acaac30ed4d5eefea7245' ],
         'BSD-2-Clause': [
             '63d6ee386b8aaba70b1bf15a79ca50f2',
-            'd0f280d1058e77e66264a9b9e10e6c89'
+            'd0f280d1058e77e66264a9b9e10e6c89',
+	    '4e290b17e3e05732730de37b44abef90'
         ],
         'BSD-3-Clause': [ '954f4d71a37096249f837652a7f586c0' ],
         'MIT': [ '38aa75cf4c4c87f018227d5ec9638d75' ],
