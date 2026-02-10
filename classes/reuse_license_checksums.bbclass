@@ -15,7 +15,10 @@ do_populate_lic:prepend() {
             '6d2d9952d88b50a51a5c73dc431d06c7',
             '65d3616852dbf7b1a6d4b53b00626032'
         ],
-        'LGPL-2.1-only': [ 'fabba2a3bfeb22a6483d44e9ae824d3f' ],
+        'LGPL-2.1-only': [
+            'fabba2a3bfeb22a6483d44e9ae824d3f',
+            '41890f71f740302b785c27661123bff5'
+        ],
         'LGPL-2.1-or-later': [
             "2a4f4fd2128ea2f65047ee63fbca9f68",
             "41890f71f740302b785c27661123bff5",
