@@ -10,14 +10,18 @@ do_populate_lic:prepend() {
 
     # unfortunatly license text may differ in whitespaces and empty lines
     checksum_map = {
-        'LGPL-2.0-only': [ '6d2d9952d88b50a51a5c73dc431d06c7' ],
+        'LGPL-2.0-only': [
+            '6d2d9952d88b50a51a5c73dc431d06c7',
+            'da48810c4ddf8e49efa031294a26b98c'
+        ],
         'LGPL-2.0-or-later': [
             '6d2d9952d88b50a51a5c73dc431d06c7',
             '65d3616852dbf7b1a6d4b53b00626032'
         ],
         'LGPL-2.1-only': [
             'fabba2a3bfeb22a6483d44e9ae824d3f',
-            '41890f71f740302b785c27661123bff5'
+            '41890f71f740302b785c27661123bff5',
+	    '147a320ed8b16b036829a0c71d424153'
         ],
         'LGPL-2.1-or-later': [
             "2a4f4fd2128ea2f65047ee63fbca9f68",
@@ -33,16 +37,28 @@ do_populate_lic:prepend() {
         'GPL-2.0-or-later': [ 
             "fed54355545ffd980b814dab4a3b312c", 
             "9e2385fe012386d34dcc5c9863070881",
+            "4cc91856b08b094b4f406a29dc61db21"
         ],
-        'GPL-3.0-only': [ '1c76c4cc354acaac30ed4d5eefea7245' ],
+        'GPL-3.0-only': [
+            '1c76c4cc354acaac30ed4d5eefea7245',
+            '49fc03046e56a282c0c743b5d3a55b7c',
+        ],
         'GPL-3.0-or-later': [ '1c76c4cc354acaac30ed4d5eefea7245' ],
         'BSD-2-Clause': [
             '63d6ee386b8aaba70b1bf15a79ca50f2',
             'd0f280d1058e77e66264a9b9e10e6c89',
-	    '4e290b17e3e05732730de37b44abef90'
+            '4e290b17e3e05732730de37b44abef90',
+            'b22a8a46d6a5b4683e5ead0113f9be1d'
         ],
-        'BSD-3-Clause': [ '954f4d71a37096249f837652a7f586c0' ],
-        'MIT': [ '38aa75cf4c4c87f018227d5ec9638d75' ],
+        'BSD-3-Clause': [
+            '954f4d71a37096249f837652a7f586c0',
+            '71f739ef75581cae312e8c711bcdab16',
+	    'f225922a2c12dfa5218fb70c49db3ea6',
+        ],
+        'MIT': [
+            '38aa75cf4c4c87f018227d5ec9638d75',
+            '4dd71a82d66fd9e3ca0cc65b8be370c0',
+        ],
         'MIT-CMU' : [ '91b70218e0db8e063ed88cd532cb801d' ],
         'LicenseRef-KDE-Accepted-LGPL': [
             "6a2eced623a7c9d0c8996ce24917d006",
