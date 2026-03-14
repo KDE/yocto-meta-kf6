@@ -19,7 +19,21 @@ include:
     - git clone https://invent.kde.org/sysadmin/ci-utilities.git
 # Yocto Repo setup
     - repo init -u https://invent.kde.org/packaging/yocto-manifest.git -m scarthgap.xml
-    - repo sync
+# Inject merge request override if needed
+    - |
+      if [[ -n "$CI_MERGE_REQUEST_IID" ]]; then
+        echo "Applying MR override for meta-kf6"
+
+        mkdir -p .repo/local_manifests
+
+        cat > .repo/local_manifests/meta-kf6-mr.xml <<EOF
+      <manifest>
+      <extend-project name="yocto-meta-kf6"
+              revision="refs/merge-requests/${CI_MERGE_REQUEST_IID}/head"/>
+      </manifest>
+      EOF
+      fi
+    - repo sync -j$(nproc)
   after_script:
     - cp -L build-visionfive2/tmp/log/cooker/visionfive2/console-latest.log bitbake.log
   artifacts:
@@ -34,7 +48,6 @@ yocto_scarthgap:
   rules:
     - if: $CI_COMMIT_BRANCH != "master"
   script:
-    - cd sources/meta-kf6/ && git checkout $CI_COMMIT_SHA && cd - && echo $CI_COMMIT_SHA
     - MACHINE=visionfive2 . ./setup-environment
     - echo 'SSTATE_MIRRORS += "file://.* file:///mnt/yocto_sstate_scarthgap/PATH"' >> conf/site.conf
     - echo 'SSTATE_MIRRORS += "file://.* https://storage.kde.org/yocto-sstate/scarthgap/PATH;downloadfilename=PATH"' >> conf/site.conf
