@@ -1,7 +1,21 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kitemmodels-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "ab78119a00b84eac65ffc986df30fbf9b1b8d00635e8fc626372e84580d158ca"
+SUMMARY = "KItemModels"
+DESCRIPTION = "Set of item models extending the Qt model-view framework"
+HOMEPAGE = "https://invent.kde.org/frameworks/kitemmodels"
+LICENSE = "LGPL-2.0-or-later & (LGPL-2.1-only | LGPL-3.0-only)"
 
+DEPENDS += "qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/qml/org/kde/kitemmodels/qmldir \
+                ${libdir}/qml/org/kde/kitemmodels/libitemmodelsplugin.so \
+"

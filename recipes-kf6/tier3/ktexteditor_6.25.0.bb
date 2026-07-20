@@ -1,7 +1,39 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018-2019 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020-2022 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/ktexteditor-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "77e815edcdf572397f5eb750d7232b366f6cc6274bb34246ab88f2f2179733b4"
+SUMMARY = "KTextEditor"
+DESCRIPTION = "Full text editor component"
+HOMEPAGE = "https://invent.kde.org/frameworks/ktexteditor"
+LICENSE = "MIT & BSD-2-Clause & LGPL-2.0-only"
 
+DEPENDS += "karchive \
+            kauth-native \
+            kconfig \
+            kconfig-native \
+            kcoreaddons-native \
+            kguiaddons \
+            kiconthemes \
+            kio \
+            kparts \
+            libxml2-native \
+            qtbase \
+            sonnet \
+            syntax-highlighting \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums
+
+# crosscompile support for kcoreaddons_desktop_to_json
+EXTRA_OECMAKE += "-DKSERVICETYPE_PATH_kpart.desktop=${STAGING_DATADIR} \
+                  -DCMAKE_SYSROOT=${RECIPE_SYSROOT} \
+"
+
+FILES:${PN} += "${libdir}/plugins/kf6/parts/katepart.so \
+                ${datadir}/katepart5/script/README.md \
+"

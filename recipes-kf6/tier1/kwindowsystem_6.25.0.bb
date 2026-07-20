@@ -1,7 +1,26 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kwindowsystem-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "b51448a7669efa18190ab7fa8d6f5e0f77d8f9879cf457dadb4629b245a02434"
+SUMMARY = "KWindowSystem"
+DESCRIPTION = "Access to the windowing system"
+HOMEPAGE = "https://invent.kde.org/frameworks/kwindowsystem/"
+LICENSE = "MIT & BSD-3-Clause & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 
+DEPENDS += "plasma-wayland-protocols \
+            qtbase \
+            qtwayland \
+            qtwayland-native \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/plugins/kf6/org.kde.kwindowsystem.platforms/* \
+                ${libdir}/plugins/kf6/kwindowsystem/* \
+                ${libdir}/qml/org/kde/kwindowsystem/* \
+"

@@ -1,7 +1,20 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kcompletion-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "e4138d525eb9e27a9222d655e412c0de8b4bd7b34289d1c7ca5a808e20b53238"
+SUMMARY = "KCompletion"
+DESCRIPTION = "Powerful completion framework, including completion-enabled lineedit and combobox"
+HOMEPAGE = "https://invent.kde.org/frameworks/kcompletion"
+LICENSE = "BSD-3-Clause & LGPL-2.0-or-later & LGPL-2.1-or-later"
 
+DEPENDS += "kcodecs \
+            kconfig \
+            kconfig-native \
+            kwidgetsaddons \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

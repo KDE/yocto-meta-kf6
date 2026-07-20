@@ -1,7 +1,17 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kcolorscheme-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "95a8a37817765f910c59b269a9958557505b99ff698fd6d220bcb166d5e302f5"
+SUMMARY = "KColorScheme"
+DESCRIPTION = "Classes to read and interact with KColorScheme"
+HOMEPAGE = "https://invent.kde.org/frameworks/kcolorscheme"
+LICENSE = "BSD-2-Clause & LGPL-2.0-or-later & LGPL-2.1-only & LGPL-3.0-only"
 
+DEPENDS += "kguiaddons qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit kf6_kconfig
+inherit reuse_license_checksums

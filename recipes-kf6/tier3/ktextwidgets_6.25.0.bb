@@ -1,7 +1,27 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/ktextwidgets-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "adb35bb19fb27e89b999645f8f9d650d1de3e8ed9bb686120705fdcd1cb0f3de"
+SUMMARY = "KTextWidgets"
+DESCRIPTION = "Text editing widgets"
+HOMEPAGE = "https://invent.kde.org/frameworks/ktextwidgets"
+LICENSE = "LGPL-2.1-or-later & (LGPL-2.0-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 
+DEPENDS += "kauth-native \
+            kcompletion \
+            kconfig \
+            kconfig-native \
+            kcoreaddons-native \
+            kservice \
+            kwidgetsaddons \
+            qtbase \
+            qtspeech \
+            sonnet \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums

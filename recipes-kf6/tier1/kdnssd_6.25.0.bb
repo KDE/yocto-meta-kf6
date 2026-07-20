@@ -1,7 +1,17 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kdnssd-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "865175616c5169d25f0783798e0a7918a418180c33828e461c1608e6121d3634"
+SUMMARY = "KDNSSD Framework"
+DESCRIPTION = "Network service discovery using Zeroconf"
+HOMEPAGE = "https://invent.kde.org/frameworks/kdnssd"
+LICENSE = "LGPL-2.0-or-later & BSD-3-Clause"
 
+DEPENDS += "avahi qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

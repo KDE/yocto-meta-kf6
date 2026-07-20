@@ -1,7 +1,15 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kquickcharts-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "146598a1e107e8480631b3001fd39d264e81dd5af6a315dec71524465d099244"
+SUMMARY = "KQuickCharts"
+DESCRIPTION = "A QtQuick plugin providing high-performance charts"
+HOMEPAGE = "https://invent.kde.org/frameworks/kquickcharts"
+LICENSE = "MIT & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 
+DEPENDS += "qtdeclarative"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

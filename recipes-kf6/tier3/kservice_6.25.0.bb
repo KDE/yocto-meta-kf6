@@ -1,7 +1,23 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kservice-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "04fa9f824e50c25b6ad7e29262c6566e0ce11edefb9fede317399a88501e9f74"
+SUMMARY = "KService"
+DESCRIPTION = "KService allows to query information about installed applications and their associated file types"
+HOMEPAGE = "https://invent.kde.org/frameworks/kservice"
+LICENSE = "LGPL-2.1-only"
 
+DEPENDS += "kconfig \
+            kconfig-native \
+            kcoreaddons \
+            kcoreaddons-native \
+            kdbusaddons \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums

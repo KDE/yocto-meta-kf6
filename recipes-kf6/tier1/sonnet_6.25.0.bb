@@ -1,7 +1,26 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020-2024 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/sonnet-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "510521f1404914943b3141e0b111f2330bbeefdf40405f93c0cf7b84a8c1c589"
+SUMMARY = "Sonnet"
+DESCRIPTION = "Spelling framework for Qt"
+HOMEPAGE = "https://invent.kde.org/frameworks/sonnet"
+LICENSE = "BSD-3-Clause & LGPL-2.0-or-later & LGPL-2.1-or-later"
 
+DEPENDS += "hunspell \
+            qtbase \
+            qtdeclarative \
+            sonnet-native \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+EXTRA_OECMAKE:append:class-native = " -DSONNET_USE_WIDGETS=OFF -DSONNET_USE_QML=OFF -DSONNET_NO_BACKENDS=ON"
+EXTRA_OECMAKE:append:class-target = " -DPARSETRIGRAMS_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/parsetrigrams6"
+
+FILES:${PN} += "${libdir}/qml/org/kde/sonnet/ \
+                ${libdir}/plugins/kf6/sonnet/ \
+"

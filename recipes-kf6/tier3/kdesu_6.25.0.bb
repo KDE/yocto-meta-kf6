@@ -1,7 +1,23 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kdesu-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "09ad4bf5fe7abae40884f8b645b22948cd00f418c7d643a0b5d505a02ef6f634"
+SUMMARY = "KDE Su"
+DESCRIPTION = "User interface for running shell commands with root privileges"
+HOMEPAGE = "https://invent.kde.org/frameworks/kdesu"
+LICENSE = "LGPL-2.1-only"
 
+DEPENDS += "kconfig \
+            kconfig-native \
+            kcoreaddons \
+            kcoreaddons-native \
+            kpty \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums

@@ -1,7 +1,26 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kimageformats-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "dfa0e9b16a288a8f94233afcbaffc87c1c5ddc037aca643943aab5a67685f26b"
+SUMMARY = "KImageFormats"
+DESCRIPTION = "Plugins to allow QImage to support extra file formats"
+HOMEPAGE = "https://invent.kde.org/frameworks/kimageformats"
+LICENSE = "BSD-2-Clause & LGPL-2.0-or-later & LGPL-2.1-or-later & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 
+DEPENDS += "karchive \
+            libavif \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+FILES:${PN}-dbg += "${libdir}/plugins/imageformats/.debug/*.so"
+
+FILES:${PN} += "${libdir}/plugins/imageformats/*.so \
+                ${datadir}/kservices6/qimageioplugins/*.desktop \
+"

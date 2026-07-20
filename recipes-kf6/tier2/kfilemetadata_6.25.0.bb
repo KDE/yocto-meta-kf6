@@ -1,7 +1,35 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2019 Hannah Kiekens <hannahkiekens@gmail.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kfilemetadata-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "78b3516ab3038fec122f86c1370f4c7d8857ddea9e907263242affae1dd1f738"
+SUMMARY = "KFileMetaData"
+DESCRIPTION = "A library for extracting file metadata"
+HOMEPAGE = "https://invent.kde.org/frameworks/kfilemetadata"
+LICENSE = "BSD-3-Clause & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 
+DEPENDS += "ffmpeg \
+            karchive \
+            kcodecs \
+            kcoreaddons \
+            kcoreaddons-native \
+            libkexiv2 \
+            poppler \
+            qtbase \
+            taglib \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit kf6_kconfig
+inherit features_check
+inherit reuse_license_checksums
+
+REQUIRED_DISTRO_FEATURES += "xattr"
+
+FILES:${PN} += "${libdir}/plugins/kf6/kfilemetadata/*.so \
+                ${libdir}/plugins/kf6/kfilemetadata/writers/*.so \
+"

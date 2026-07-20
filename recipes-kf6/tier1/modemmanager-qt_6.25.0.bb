@@ -1,7 +1,17 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/modemmanager-qt-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "1f1c3ef493445a3f9215462dd86d25e2e4355ffbce9a70016288be04c537b91b"
+SUMMARY = "ModemManagerQt"
+DESCRIPTION = "Qt wrapper for ModemManager DBus API"
+HOMEPAGE = "https://invent.kde.org/frameworks/modemmanager-qt"
+LICENSE = "BSD-3-Clause & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 
+DEPENDS += "modemmanager qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+RDEPENDS:${PN} += "modemmanager"

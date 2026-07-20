@@ -1,7 +1,15 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020-2024 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kglobalaccel-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "81f9842f13db8e2d4384c0f02650cd076441d2fba9540820901fffe1d2f4897f"
+SUMMARY = "KGlobalAccel"
+DESCRIPTION = "Global desktop keyboard shortcuts"
+HOMEPAGE = "https://invent.kde.org/frameworks/kglobalaccel"
+LICENSE = "LGPL-2.0-or-later"
 
+DEPENDS += "qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

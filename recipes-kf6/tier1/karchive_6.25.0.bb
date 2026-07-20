@@ -1,7 +1,22 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2014 Erik Botö <erik.boto@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/karchive-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "123a268352ab63d548ba5e3c3e8fbf1d737025e4c5189821cf10e3328ab4de15"
+# whitelist licenses are all compatible with LGPL-2.0+ and do not add additional restrictions
 
+SUMMARY = "KArchive"
+DESCRIPTION = "Qt addon providing access to numerous types of archives"
+HOMEPAGE = "https://invent.kde.org/frameworks/karchive"
+
+REUSE_LICENSECHECK_WHITELIST = "LGPL-2.0 LGPL-3.0 LicenseRef-KDE-Accepted-LGPL"
+LICENSE = "BSD-2-Clause & LGPL-2.0-or-later"
+
+DEPENDS += "bzip2 qtbase xz zlib"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

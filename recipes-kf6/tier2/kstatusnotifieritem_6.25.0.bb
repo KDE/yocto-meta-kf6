@@ -1,7 +1,16 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2023 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kstatusnotifieritem-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "7a6397f08b15a7d50e407c193f1774b548994f6f9d12327dfbb674270adfc9af"
+SUMMARY = "KStatusNotifierItem"
+DESCRIPTION = "Implementation of Status Notifier Items"
+HOMEPAGE = "https://invent.kde.org/frameworks/kstatusnotifieritem"
+LICENSE = "CC0-1.0 & LGPL-2.0-or-later"
 
+DEPENDS += "kwindowsystem qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+EXTRA_OECMAKE += "-DBUILD_PYTHON_BINDINGS=OFF"

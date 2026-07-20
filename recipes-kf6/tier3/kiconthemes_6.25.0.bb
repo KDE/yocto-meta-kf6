@@ -1,7 +1,33 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020-2026 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kiconthemes-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "f68f0d810a53ec589fbbc0b05d3754e2bd26e0b7c3ceb3938698b08702ae10d5"
+SUMMARY = "KIconThemes"
+DESCRIPTION = "Icon GUI utilities"
+HOMEPAGE = "https://invent.kde.org/frameworks/kiconthemes"
+LICENSE = "LGPL-2.1-only"
 
+DEPENDS += "breeze-icons \
+            karchive \
+            kauth-native \
+            kcolorscheme \
+            kconfig-native \
+            kcoreaddons \
+            kcoreaddons-native \
+            kwidgetsaddons \
+            qtbase \
+            qtbase-native \
+            qtsvg \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/plugins/iconengines/ \
+                ${libdir}/plugins/kiconthemes6/iconengines/KIconEnginePlugin.so \
+                ${libdir}/qml/org/kde/iconthemes/* \
+"

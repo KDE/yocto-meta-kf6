@@ -1,7 +1,20 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kcrash-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "b1b952c500787e760c0fca3ce20c6ed8cf488ed106e0e72bc604509df84d8fd7"
+SUMMARY = "KCrash"
+DESCRIPTION = "Graceful handling of application crashes"
+HOMEPAGE = "https://invent.kde.org/frameworks/kcrash"
+REUSE_LICENSECHECK_WHITELIST = "CC0-1.0"
+LICENSE = "LGPL-2.0-or-later"
 
+DEPENDS += "kcoreaddons \
+            kcoreaddons-native \
+            kwindowsystem \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

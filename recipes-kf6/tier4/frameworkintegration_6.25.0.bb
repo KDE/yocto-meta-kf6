@@ -1,7 +1,33 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2018-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/frameworkintegration-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "eb8d55bd04cb023ea0480cf82c396d63b4a14ae7e5f60963a00a0d58f47a8022"
+SUMMARY = "Integration for Frameworks"
+DESCRIPTION = "Integration of Qt application with KDE workspaces"
+HOMEPAGE = "https://invent.kde.org/frameworks/frameworkintegration"
+LICENSE = "LGPL-2.0-only"
 
+DEPENDS += "kauth-native \
+            kconfig \
+            kconfig-native \
+            kconfigwidgets \
+            kcoreaddons-native \
+            kiconthemes \
+            knewstuff \
+            knotifications \
+            kpackage \
+            kpackage-native \
+            kwidgetsaddons \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit kf6_kdoctools
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/plugins/kf6/FrameworkIntegrationPlugin.so \
+                ${datadir}/kf6/infopage \
+"

@@ -1,7 +1,22 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kdav-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "a16c4cc1b21cdf2739e1ba20b77a5212b9daabc7e395259771dd077f5200f14b"
+SUMMARY = "KDav"
+DESCRIPTION = "This is an DAV protocol implementation with KJobs"
+HOMEPAGE = "https://invent.kde.org/frameworks/kdav"
+LICENSE = "LGPL-2.0-or-later"
 
+DEPENDS += "kcoreaddons \
+            kcoreaddons-native \
+            ki18n \
+            kio \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_kdoctools
+inherit kf6_kconfig
+inherit kf6_kauth
+inherit reuse_license_checksums

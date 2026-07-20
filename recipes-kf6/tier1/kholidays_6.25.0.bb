@@ -1,7 +1,23 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kholidays-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "13c345422f802bd157aaea18b2ccb5270eb5e3de44915bcce70f1a4234e1497b"
+SUMMARY = "KHolidays"
+DESCRIPTION = "Library to assist determining when holidays occur"
+HOMEPAGE = "https://invent.kde.org/frameworks/kholidays"
+LICENSE = "LGPL-2.0-or-later & BSD-2-Clause"
 
+DEPENDS += "bison-native \
+            qtbase \
+"
+
+SRC_URI:append = " file://0001-Fix-reproducible-build-issues.patch"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+EXTRA_OECMAKE += "-DBISON_TARGET_ARG_COMPILE_FLAGS='--no-lines --file-prefix-map=${S}=${TARGET_DBGSRC_DIR} --file-prefix-map=${B}=${TARGET_DBGSRC_DIR}'"
+
+FILES:${PN} += "${libdir}/qml/org/kde/kholidays"

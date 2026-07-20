@@ -1,7 +1,26 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kjobwidgets-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "756bdc0a1c89a8e732ea7299bd325c38b81604da76b4cf361ccfc8b40a6e781e"
+# the licenses are only options for some files
 
+SUMMARY = "KJobWidgets"
+DESCRIPTION = "Widgets for showing progress of asynchronous jobs"
+HOMEPAGE = "https://invent.kde.org/frameworks/kjobwidgets"
+REUSE_LICENSECHECK_WHITELIST = "LicenseRef-KDE-Accepted-GPL LGPL-3.0"
+LICENSE = "LGPL-2.0-only"
+
+DEPENDS += "kcoreaddons \
+            kcoreaddons-native \
+            knotifications \
+            kwidgetsaddons \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+EXTRA_OECMAKE += "-DBUILD_PYTHON_BINDINGS=OFF"

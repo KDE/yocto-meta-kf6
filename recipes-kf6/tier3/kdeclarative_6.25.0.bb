@@ -1,7 +1,37 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018-2019 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kdeclarative-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "7692ccdffd55826976e916927b59aeb2d24a77b16af967fb265e9fe0cde387fa"
+SUMMARY = "KDeclarative"
+DESCRIPTION = "Integration of QML and KDE work spaces"
+HOMEPAGE = "https://invent.kde.org/frameworks/kdeclarative"
+LICENSE = "LGPL-2.0-or-later & LGPL-2.1-or-later & MIT"
 
+DEPENDS += "kauth-native \
+            kconfig \
+            kconfig-native \
+            kglobalaccel \
+            kguiaddons \
+            kiconthemes \
+            kio \
+            knotifications \
+            kpackage \
+            kpackage-native \
+            kwidgetsaddons \
+            kwindowsystem \
+            libepoxy \
+            libxml2-native \
+            qtbase \
+            qtdeclarative \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/qml/org/kde"
+
+RDEPENDS:${PN} += "qtdeclarative-qmlplugins"

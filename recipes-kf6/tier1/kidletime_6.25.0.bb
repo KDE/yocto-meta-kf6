@@ -1,7 +1,26 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kidletime-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "64e83d46a15b444017c6341e479e229bbd6cbb8320ef1359773737cee89dd7ca"
+# GPL-2.0+ only used in exmaple and test code
 
+SUMMARY = "KIdleTime"
+DESCRIPTION = "Reporting of idle time of user and system"
+HOMEPAGE = "https://invent.kde.org/frameworks/kidletime"
+REUSE_LICENSECHECK_WHITELIST = "GPL-2.0-or-later"
+LICENSE = "LGPL-2.1-or-later & MIT"
+
+DEPENDS += "plasma-wayland-protocols \
+            qtbase \
+            qtwayland \
+            qtwayland-native \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/plugins/kf6/org.kde.kidletime.platforms/*.so"

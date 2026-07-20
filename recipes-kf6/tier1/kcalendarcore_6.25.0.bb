@@ -1,7 +1,19 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kcalendarcore-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "d6a19c3ec0cdfc6979bfde08ce7c62db8c52dd9dff4a13e4da8978e00480dfeb"
+SUMMARY = "KCalendarCore"
+DESCRIPTION = "Library for Interfacing with Calendars"
+HOMEPAGE = "https://invent.kde.org/frameworks/kcalendarcore"
 
+LICENSE = "BSD-3-Clause & LGPL-2.0-or-later"
+
+# licenses only contained in autotests
+REUSE_LICENSECHECK_WHITELIST = "LGPL-3.0-or-later"
+
+DEPENDS += "libical qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

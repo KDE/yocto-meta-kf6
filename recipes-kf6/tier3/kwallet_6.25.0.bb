@@ -1,7 +1,37 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kwallet-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "6fe7c8f4c556db4861f0046dfe179c31e7891fb6ecdcfa33692d252bf23d3b11"
+SUMMARY = "KWallet Framework"
+DESCRIPTION = "Safe desktop-wide storage for passwords"
+HOMEPAGE = "https://invent.kde.org/frameworks/kwallet"
+LICENSE = "LGPL-2.1-or-later"
 
+DEPENDS += "kauth-native \
+            kconfig \
+            kconfig-native \
+            kconfigwidgets \
+            kcoreaddons \
+            kcoreaddons-native \
+            kcrash \
+            kdbusaddons \
+            knotifications \
+            kservice \
+            kwidgetsaddons \
+            kwindowsystem \
+            libgcrypt \
+            libsecret \
+            qca \
+            qtbase \
+"
+
+EXTRA_OECMAKE += "-DOE_QCA_PATH_HOST_ROOT=${STAGING_DIR_HOST}"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums
+
+FILES:${PN} += "${datadir}/xdg-desktop-portal/portals/*"

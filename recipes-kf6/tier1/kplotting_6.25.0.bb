@@ -1,7 +1,17 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kplotting-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "9fbd4775c9b1f56a24d90ee47cd0ad57c816fbbf60e3aaeba6e2b631f7b3fc9b"
+SUMMARY = "KPlotting"
+DESCRIPTION = "KPlotWidget is a QWidget-derived class that provides a virtual base class for easy data-plotting"
+HOMEPAGE = "https://invent.kde.org/frameworks/kplotting"
+LICENSE = "LGPL-2.0-or-later"
 
+DEPENDS += "qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

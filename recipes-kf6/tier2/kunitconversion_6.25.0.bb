@@ -1,7 +1,20 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kunitconversion-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "369ef042de797ea647994c524cc43915b514850026cfddb4b24bc78bdfc3dcc8"
+SUMMARY = "KUnitConversion"
+DESCRIPTION = "Converting physical units"
+HOMEPAGE = "https://invent.kde.org/frameworks/kunitconversion"
+LICENSE = "LGPL-2.0-or-later"
 
+DEPENDS += "qtbase"
+
+EXTRA_OECMAKE += "-DBUILD_PYTHON_BINDINGS=OFF"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums

@@ -1,7 +1,26 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/knotifications-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "0884add69f26a455cb8b6327bf89dc7ad3a0e4397c43c202fcf7ff73204ec695"
+SUMMARY = "KNotifications"
+DESCRIPTION = "Desktop notifications"
+HOMEPAGE = "https://invent.kde.org/frameworks/knotifications"
+LICENSE = "LGPL-2.1-only"
 
+DEPENDS += "kconfig \
+            kconfig-native \
+            kcoreaddons \
+            kcoreaddons-native \
+            kwindowsystem \
+            libcanberra \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/qml/org/kde/notification/*"
+
+EXTRA_OECMAKE += "-DBUILD_PYTHON_BINDINGS=OFF"

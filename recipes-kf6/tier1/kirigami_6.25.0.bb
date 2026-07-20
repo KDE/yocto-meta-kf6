@@ -1,7 +1,21 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kirigami-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "da7f3b733557b19975bb6b122e05d2f4d9214a70a81e2bb6e71c65761a3c6b43"
+SUMMARY = "Kirigami"
+DESCRIPTION = "A QtQuick based components set"
+HOMEPAGE = "https://invent.kde.org/frameworks/kirigami"
+LICENSE = "LGPL-2.0-or-later"
 
+DEPENDS += "qtdeclarative qtsvg"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/qml/org/kde/kirigami/* \
+                ${libdir}/qml/org/kde/kirigami.2/* \
+"
+
+RDEPENDS:${PN} += "qtdeclarative-qmlplugins"

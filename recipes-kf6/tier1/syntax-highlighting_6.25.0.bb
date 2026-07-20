@@ -1,7 +1,29 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/syntax-highlighting-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "8aeee428e82ac96aad01bbd423518705d214e0f3a5ac1fd64389565d08e5d501"
+SUMMARY = "Syntax Highlighting Engine"
+DESCRIPTION = "Syntax highlighting Engine for Structured Text and Code"
+HOMEPAGE = "https://invent.kde.org/frameworks/syntax-highlighting"
+LICENSE = "MIT & LGPL-2.0-or-later"
 
+# licenses only contained in autotests
+REUSE_LICENSECHECK_WHITELIST = "LGPL-2.1-or-later GPL-2.0-only"
+
+DEPENDS += "${BPN}-native qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit perlnative
+inherit reuse_license_checksums
+
+EXTRA_OECMAKE:class-native = "-DKSYNTAXHIGHLIGHTING_USE_GUI=OFF"
+EXTRA_OECMAKE:class-target = "-DKATEHIGHLIGHTINGINDEXER_EXECUTABLE=${STAGING_DIR_NATIVE}/${bindir}/katehighlightingindexer"
+
+sysroot_stage_all:append:class-native () {
+    mkdir -p ${SYSROOT_DESTDIR}/${bindir}
+    cp ${B}/bin/katehighlightingindexer ${SYSROOT_DESTDIR}/${bindir}
+}
+
+FILES:${PN} += "${libdir}/qml/org/kde/syntaxhighlighting/"

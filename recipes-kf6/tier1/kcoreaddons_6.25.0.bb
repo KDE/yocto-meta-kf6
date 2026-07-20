@@ -1,7 +1,29 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2014 Johan Thelin <johan.thelin@pelagicore.com>
+# SPDX-FileCopyrightText: 2016 Sébastien Taylor <sebastien@au-zone.com>
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kcoreaddons-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "e7f0825576dc44af0c7194538e48114aa240f8fd3402f27047771f009e161a7e"
+SUMMARY = "KCoreAddons"
+DESCRIPTION = "Qt addon library with a collection of non-GUI utilities"
+HOMEPAGE = "https://invent.kde.org/frameworks/kcoreaddons"
+REUSE_LICENSECHECK_WHITELIST = "CC0-1.0"
+LICENSE = "LGPL-2.1-only"
 
+DEPENDS += "kcoreaddons-native qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+inherit mime
+
+FILES:${PN} += "${datadir}/mime/packages/kde5.xml \
+                ${datadir}/kf6/licenses/* \
+                ${datadir}/kf6/jsonschema/* \
+                ${libdir}/qml/org/kde/coreaddons/* \
+"
+
+FILES:${PN}-dev += "${bindir}/desktoptojson"
+
+EXTRA_OECMAKE += "-DBUILD_PYTHON_BINDINGS=OFF"

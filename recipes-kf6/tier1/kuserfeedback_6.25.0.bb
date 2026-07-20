@@ -1,7 +1,15 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kuserfeedback-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "4ce9fd672bed20ce646cd175522d207e0fe753fe42c5cf773c087927c0f30fe3"
+SUMMARY = "KUserFeedback"
+DESCRIPTION = "Framework for collecting user feedback for apps via telemetry and surveys"
+HOMEPAGE = "https://invent.kde.org/frameworks/kuserfeedback"
+LICENSE = "MIT & BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://COPYING.LIB;md5=61be4d272e55cc2609d58596cf084908"
 
+DEPENDS += "qtbase"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums

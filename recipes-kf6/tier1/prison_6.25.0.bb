@@ -1,7 +1,24 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/prison-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "9f4a8fa5732e45142c9ba2e35a38904d44193efc050e1ca20a414445c3a98b34"
+SUMMARY = "Prison"
+DESCRIPTION = "Prison is a barcode api currently offering a nice Qt api to produce QRCode barcodes and DataMatrix barcodes"
+HOMEPAGE = "https://invent.kde.org/frameworks/prison"
+REUSE_LICENSECHECK_WHITELIST = "CC0-1.0"
+LICENSE = "MIT & BSD-3-Clause"
 
+DEPENDS += "libdmtx \
+            qrencode \
+            qtbase \
+            qtdeclarative \
+            qtmultimedia \
+            zxing-cpp \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/qml/org/kde/prison/"

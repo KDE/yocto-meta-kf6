@@ -1,7 +1,22 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2019-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/kcontacts-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "386826b3886d6b32a4583e638493ccd3cfb37722faaf318742d70d6bf0e3f0a7"
+SUMMARY = "KContacts"
+DESCRIPTION = "Library for working with contact information"
+HOMEPAGE = "https://invent.kde.org/frameworks/kcontacts"
+LICENSE = "MIT & BSD-3-Clause & LGPL-2.0-or-later & Unicode-DFS-2016"
 
+DEPENDS += "kcodecs \
+            kconfig \
+            kconfig-native \
+            kcoreaddons \
+            kcoreaddons-native \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums

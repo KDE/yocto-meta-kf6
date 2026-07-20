@@ -1,7 +1,25 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2017-2020 Volker Krause <vkrause@kde.org>
+# SPDX-FileCopyrightText: 2018-2019 Alistair Francis <alistair.francis@wdc.com>
+# SPDX-FileCopyrightText: 2020 Andreas Cord-Landwehr <cordlandwehr@kde.org>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/frameworks/6.25/knotifyconfig-6.25.0.tar.xz"
-SRC_URI[sha256sum] = "8dc37406d8f13193216201752ece968cbd38da5a76780ad78575d11b47b440ea"
+SUMMARY = "KNotifyConfig"
+DESCRIPTION = "Configuration dialog for desktop notifications"
+HOMEPAGE = "https://invent.kde.org/frameworks/knotifyconfig"
+LICENSE = "LGPL-2.0-only"
 
+DEPENDS += "kauth-native \
+            kcompletion \
+            kconfig \
+            kconfig-native \
+            kcoreaddons-native \
+            kio \
+            libxml2-native \
+            qtbase \
+"
+
+inherit kf6
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit reuse_license_checksums
