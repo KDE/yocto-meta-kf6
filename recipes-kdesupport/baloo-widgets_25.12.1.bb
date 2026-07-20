@@ -1,6 +1,24 @@
-# SPDX-FileCopyrightText: none
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2025 Marc Ferland <marc.ferland@sonatest.com>
+#
+# SPDX-License-Identifier: MIT
 
-require ${PN}.inc
-SRC_URI = "https://download.kde.org/stable/release-service/${PV}/src/baloo-widgets-${PV}.tar.xz"
-SRC_URI[sha256sum] = "665a95086f2913054d5a660494e57de30f877cfe48d60f224b21c31b1ebe3069"
+SUMMARY = "Baloo Widgets"
+DESCRIPTION = "Widgets for Baloo"
+HOMEPAGE = "https://invent.kde.org/libraries/baloo-widgets"
+LICENSE = "GPL-2.0-only | GPL-3.0-only | LGPL-2.0-only | LGPL-2.0-or-later | LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL | LicenseRef-KDE-Accepted-LGPL"
+
+DEPENDS += "baloo \
+            kfilemetadata \
+            kio \
+            kservice \
+"
+
+inherit kdegear
+inherit kf6_cmake_framework
+inherit kf6_ki18n
+inherit kf6_kconfig
+inherit reuse_license_checksums
+
+FILES:${PN} += "${libdir}/plugins/kf6/kfileitemaction \
+                ${libdir}/plugins/kf6/propertiesdialog \
+"
