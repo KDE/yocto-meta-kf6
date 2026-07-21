@@ -18,7 +18,7 @@ DEPENDS += "docbook-xml-dtd4 \
             libxslt \
 "
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit gettext
 inherit python3native

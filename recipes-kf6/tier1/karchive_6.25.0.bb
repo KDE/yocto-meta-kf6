@@ -17,6 +17,6 @@ LICENSE = "BSD-2-Clause & LGPL-2.0-or-later"
 
 DEPENDS += "bzip2 qtbase xz zlib"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit reuse_license_checksums

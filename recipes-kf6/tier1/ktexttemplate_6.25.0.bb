@@ -9,7 +9,7 @@ LICENSE = "LGPL-2.1-or-later"
 
 DEPENDS += "qtbase qtdeclarative"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit reuse_license_checksums
 

@@ -14,7 +14,7 @@ LICENSE = "MIT & BSD-2-Clause & BSD-3-Clause & LGPL-2.0-or-later & (LGPL-2.1-onl
 
 DEPENDS += "kconfig-native qtbase"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit reuse_license_checksums
 

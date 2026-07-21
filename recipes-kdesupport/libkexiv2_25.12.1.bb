@@ -8,7 +8,7 @@ DESCRIPTION = "Wrapper around Exiv2 library to manipulate picture metadata as EX
 HOMEPAGE = "https://invent.kde.org/graphics/libkexiv2"
 LICENSE = "BSD-3-Clause & GPL-2.0-or-later"
 
-inherit kdegear
+inherit kf6_kdegear_src
 inherit kf6_cmake_framework
 inherit reuse_license_checksums
 

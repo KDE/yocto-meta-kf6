@@ -14,7 +14,7 @@ DEPENDS += "kcoreaddons kcoreaddons-native"
 
 EXTRA_OECMAKE += "-DCMAKE_DISABLE_FIND_PACKAGE_UTEMPTER=ON"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit kf6_ki18n
 inherit reuse_license_checksums

@@ -13,7 +13,7 @@ LICENSE = "LGPL-2.1-only"
 
 DEPENDS += "kcoreaddons-native qtbase"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit reuse_license_checksums
 inherit mime

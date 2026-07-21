@@ -13,7 +13,7 @@ REUSE_LICENSECHECK_WHITELIST = "LGPL-2.1-or-later GPL-2.0-only"
 
 DEPENDS += "${BPN}-native qtbase"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit perlnative
 inherit reuse_license_checksums

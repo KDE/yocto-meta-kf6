@@ -10,7 +10,7 @@ LICENSE = "BSD-3-Clause & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accept
 
 DEPENDS += "modemmanager qtbase"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit reuse_license_checksums
 

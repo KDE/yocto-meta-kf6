@@ -9,7 +9,7 @@ LICENSE = "CC0-1.0 & LGPL-2.0-or-later"
 
 DEPENDS += "kwindowsystem qtbase"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit reuse_license_checksums
 

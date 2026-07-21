@@ -21,7 +21,7 @@ DEPENDS:append:class-target = " \
     qtdeclarative \
 "
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit python3native
 inherit reuse_license_checksums

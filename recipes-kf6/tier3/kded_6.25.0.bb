@@ -21,7 +21,7 @@ DEPENDS += "kauth-native \
             qtbase \
 "
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit kf6_kdoctools
 inherit reuse_license_checksums

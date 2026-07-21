@@ -7,7 +7,7 @@ DESCRIPTION = "Integration library and QML module for Accounts-SSO and SignOn-SS
 HOMEPAGE = "https://invent.kde.org/network/kaccounts-integration"
 LICENSE = "GPL-2.0-only & GPL-2.0-or-later & GPL-3.0-only & LGPL-2.0-or-later"
 
-inherit kdegear
+inherit kf6_kdegear_src
 inherit kf6_cmake_framework kf6_kconfig kf6_kcmutils
 inherit reuse_license_checksums
 

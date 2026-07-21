@@ -29,7 +29,7 @@ DEPENDS += "kauth-native \
 
 EXTRA_OECMAKE += "-DOE_QCA_PATH_HOST_ROOT=${STAGING_DIR_HOST}"
 
-inherit kf6
+inherit kf6_src
 inherit kf6_cmake_framework
 inherit kf6_ki18n
 inherit reuse_license_checksums
