@@ -6,6 +6,6 @@
 SRC_URI = "https://download.kde.org/stable/release-service/${PV}/src/${BPN}-${PV}.tar.xz"
 SRC_URI[sha256sum] = "${SRC_URI_SHA256SUM_${BPN}}"
 
-SRC_URI_SHA256SUM_baloo-widgets = "665a95086f2913054d5a660494e57de30f877cfe48d60f224b21c31b1ebe3069"
-SRC_URI_SHA256SUM_kaccounts-integration = "a449426e849b0562622585d11a12f8b407bbf9cd3a988083b68f17a657727b45"
-SRC_URI_SHA256SUM_libkexiv2 = "c5bd5bc894fc7878a6112bad19c78d0978a187151bfb5ac395058ca33090e650"
+SRC_URI_SHA256SUM_baloo-widgets = "fa5288d216d3ed9ed0926385dbc0b266b60317a60c231a6dccaff4bcd810d9fc"
+SRC_URI_SHA256SUM_kaccounts-integration = "efdf9f14f7fa917863effd47b0c7ebd0b49687e9205049ff8cb868405f16334c"
+SRC_URI_SHA256SUM_libkexiv2 = "dd5ddbf107dd9a51454ae83b0537ca80ce31e65da649c0a8db745e356d0d0064"
