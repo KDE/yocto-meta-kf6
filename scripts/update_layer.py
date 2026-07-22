@@ -86,8 +86,8 @@ class RecipeUpdate:
 
 
 FAMILIES = {
-    "framework": Family("framework", "kf6", "classes/kf6.bbclass"),
-    "gear": Family("gear", "kdegear", "classes/kdegear.bbclass"),
+    "framework": Family("framework", "kf6_src", "classes/kf6_src.bbclass"),
+    "gear": Family("gear", "kf6_kdegear_src", "classes/kf6_kdegear_src.bbclass"),
 }
 
 
