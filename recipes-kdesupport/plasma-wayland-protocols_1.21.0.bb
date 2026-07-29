@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://COPYING.LIB;md5=2d5025d4aa3495befef8f17206a5b0a1"
 DEPENDS += "extra-cmake-modules qtwayland-native"
 
 SRC_URI = "https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-${PV}.tar.xz"
-SRC_URI[sha256sum] = "9818bb1462211ce5982e670abf0d964eb11fe1d0c02a1c26084db30695a79d6a"
+SRC_URI[sha256sum] = "698a7b28b711270314e396e248ae86087cfeaed01372009063995be6e1dc85ba"
 
 inherit qt6-cmake
 
