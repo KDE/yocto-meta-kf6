@@ -15,6 +15,8 @@ DEPENDS += "cmake-native \
             qttools-native \
 "
 
+SRC_URI:append = " file://0001-KDEInstallDirs6-install-metatypes-under-LIBDIR.patch"
+
 require recipes-kf6/frameworks_src.inc
 inherit qt6-cmake
 inherit reuse_license_checksums

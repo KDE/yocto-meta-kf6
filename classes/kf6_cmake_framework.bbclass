@@ -62,6 +62,7 @@ FILES:${PN}:append = " \
     ${datadir}/polkit-1/actions/*.policy \
     ${datadir}/mime/packages/kde6.xml \
     ${libdir}/qml/org/kde/* \
+    ${libdir}/metatypes \
 "
 
 FILES:${PN}-dev:append = " \

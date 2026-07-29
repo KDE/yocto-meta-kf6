@@ -1,0 +1,43 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Marc Ferland <marc.ferland@gmail.com>
+Date: Wed, 22 Jul 2026 21:30:00 -0400
+Subject: [PATCH] KDEInstallDirs6: install metatypes under LIBDIR
+
+Qt installs metatype files under its architecture-dependent data
+directory, which is ${libdir} in OpenEmbedded. When Qt system paths are
+not used, keep KDE metatype files alongside the Qt files instead of
+installing them directly below ${prefix}.
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Marc Ferland <marc.ferland@gmail.com>
+---
+ kde-modules/KDEInstallDirs6.cmake | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/kde-modules/KDEInstallDirs6.cmake b/kde-modules/KDEInstallDirs6.cmake
+index 3db1b77..89e0d91 100644
+--- a/kde-modules/KDEInstallDirs6.cmake
++++ b/kde-modules/KDEInstallDirs6.cmake
+@@ -252,7 +252,8 @@ if(KDE_INSTALL_USE_QT_SYS_PATHS)
+     if (qt_archdata_dir)
+         _define_absolute(QTMETATYPESDIR "${qt_archdata_dir}/metatypes" "Qt metatypes files")
+     else()
+-        _define_non_cache(QTMETATYPESDIR "metatypes")
++        _define_relative(QTMETATYPESDIR LIBDIR "metatypes"
++            "Qt metatypes files")
+     endif()
+ else()
+     set(_pluginsDirParent LIBDIR)
+@@ -266,7 +267,8 @@ else()
+     _define_relative(QMLDIR LIBDIR "qml"
+         "QtQuick2 imports")
+ 
+-    _define_non_cache(QTMETATYPESDIR "metatypes")
++    _define_relative(QTMETATYPESDIR LIBDIR "metatypes"
++        "Qt metatypes files")
+ endif()
+ 
+ _define_relative(PLUGINDIR QTPLUGINDIR ""
+-- 
+2.50.1
