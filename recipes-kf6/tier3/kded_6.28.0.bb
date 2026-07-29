@@ -16,7 +16,6 @@ DEPENDS += "kauth-native \
             kcoreaddons-native \
             kcrash \
             kdbusaddons \
-            kio \
             kservice \
             qtbase \
 "
