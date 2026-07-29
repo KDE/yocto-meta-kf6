@@ -58,4 +58,4 @@ FILES:${PN}-dev += "${libdir}/libKF6KIOGui.so \
                     ${libdir}/libKF6KIOCore.so \
 "
 
-RDEPENDS:${PN} += "ca-certificates"
+RDEPENDS:${PN} += "ca-certificates kded"
