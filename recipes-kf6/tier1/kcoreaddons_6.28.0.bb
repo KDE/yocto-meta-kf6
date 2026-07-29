@@ -11,7 +11,7 @@ HOMEPAGE = "https://invent.kde.org/frameworks/kcoreaddons"
 REUSE_LICENSECHECK_WHITELIST = "CC0-1.0"
 LICENSE = "LGPL-2.1-only"
 
-DEPENDS += "kcoreaddons-native qtbase"
+DEPENDS += "kcoreaddons-native qtbase util-linux"
 
 require recipes-kf6/frameworks_src.inc
 inherit kf6_cmake_framework
