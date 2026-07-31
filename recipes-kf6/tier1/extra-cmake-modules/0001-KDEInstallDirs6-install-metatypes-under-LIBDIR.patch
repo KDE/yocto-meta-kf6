@@ -10,6 +10,9 @@ installing them directly below ${prefix}.
 
 Upstream-Status: Inappropriate [oe-specific]
 
+SPDX-FileCopyrightText: Marc Ferland <marc.ferland@sonatest.com>
+SPDX-License-Identifier: MIT
+
 Signed-off-by: Marc Ferland <marc.ferland@gmail.com>
 ---
  kde-modules/KDEInstallDirs6.cmake | 6 ++++--
