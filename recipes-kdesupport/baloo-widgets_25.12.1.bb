@@ -13,7 +13,7 @@ DEPENDS += "baloo \
             kservice \
 "
 
-inherit kf6_kdegear_src
+require recipes-kdesupport/application_src.inc
 inherit kf6_cmake_framework
 inherit kf6_ki18n
 inherit kf6_kconfig

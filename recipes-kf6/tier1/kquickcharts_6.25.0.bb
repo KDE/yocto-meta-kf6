@@ -10,6 +10,6 @@ LICENSE = "MIT & (LGPL-2.1-only | LGPL-3.0-only | LicenseRef-KDE-Accepted-LGPL)"
 
 DEPENDS += "qtdeclarative"
 
-inherit kf6_src
+require recipes-kf6/frameworks_src.inc
 inherit kf6_cmake_framework
 inherit reuse_license_checksums

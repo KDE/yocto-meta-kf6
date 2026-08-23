@@ -15,7 +15,7 @@ DEPENDS += "cmake-native \
             qttools-native \
 "
 
-inherit kf6_src
+require recipes-kf6/frameworks_src.inc
 inherit qt6-cmake
 inherit reuse_license_checksums
 

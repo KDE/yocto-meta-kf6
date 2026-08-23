@@ -14,7 +14,7 @@ DEPENDS += "bison-native \
 
 SRC_URI:append = " file://0001-Fix-reproducible-build-issues.patch"
 
-inherit kf6_src
+require recipes-kf6/frameworks_src.inc
 inherit kf6_cmake_framework
 inherit reuse_license_checksums
 

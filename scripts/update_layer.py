@@ -51,8 +51,7 @@ class Release:
 @dataclass(frozen=True)
 class Family:
     name: str
-    inherit_class: str
-    metadata_class: str
+    required_include: str
 
     def archive_url(self, module: str, version: str) -> str:
         """Build the release archive URL for one module.
@@ -86,8 +85,8 @@ class RecipeUpdate:
 
 
 FAMILIES = {
-    "framework": Family("framework", "kf6_src", "classes/kf6_src.bbclass"),
-    "gear": Family("gear", "kf6_kdegear_src", "classes/kf6_kdegear_src.bbclass"),
+    "framework": Family("framework", "recipes-kf6/frameworks_src.inc"),
+    "gear": Family("gear", "recipes-kdesupport/application_src.inc"),
 }
 
 
@@ -168,19 +167,22 @@ def releases_from_args(args: argparse.Namespace) -> list[Release]:
     return [Release(args.command, args.version)]
 
 
-def inherits_class(recipe_text: str, class_name: str) -> bool:
-    """Check whether a recipe directly inherits a BitBake class.
+def requires_include(recipe_text: str, include_path: str) -> bool:
+    """Check whether a recipe directly requires a BitBake include file.
 
     Args:
         recipe_text: Complete recipe contents.
-        class_name: BitBake class name to find.
+        include_path: Include path to find.
 
     Returns:
-        True when an inherit statement contains the class.
+        True when a require statement references the include path.
     """
-    return any(
-        class_name in match.group(1).split()
-        for match in re.finditer(r"^\s*inherit\s+(.+)$", recipe_text, re.MULTILINE)
+    return bool(
+        re.search(
+            rf"^\s*require\s+{re.escape(include_path)}\s*$",
+            recipe_text,
+            re.MULTILINE,
+        )
     )
 
 
@@ -202,7 +204,7 @@ def discover_updates(root: Path, release: Release) -> list[RecipeUpdate]:
 
     for recipe in sorted(root.glob("recipes-*/**/*.bb")):
         text = recipe.read_text(encoding="utf-8")
-        if not inherits_class(text, family.inherit_class):
+        if not requires_include(text, family.required_include):
             continue
 
         match = RECIPE_RE.fullmatch(recipe.name)
@@ -218,7 +220,7 @@ def discover_updates(root: Path, release: Release) -> list[RecipeUpdate]:
         updates.append(RecipeUpdate(family, recipe, destination, name, archive_url))
 
     if not updates:
-        raise UpdateError(f"no recipes inheriting {family.inherit_class} were found")
+        raise UpdateError(f"no recipes requiring {family.required_include} were found")
 
     return updates
 
@@ -249,12 +251,12 @@ def validate_metadata(root: Path, updates: Iterable[RecipeUpdate]) -> None:
         updates: Planned recipe updates to validate.
 
     Raises:
-        UpdateError: If a class or checksum assignment is missing or duplicated.
+        UpdateError: If an include or checksum assignment is missing or duplicated.
     """
     for family, family_updates in group_by_family(updates).items():
-        metadata_path = root / family.metadata_class
+        metadata_path = root / family.required_include
         if not metadata_path.is_file():
-            raise UpdateError(f"metadata class not found: {family.metadata_class}")
+            raise UpdateError(f"metadata include not found: {family.required_include}")
 
         metadata = metadata_path.read_text(encoding="utf-8")
 
@@ -268,7 +270,7 @@ def validate_metadata(root: Path, updates: Iterable[RecipeUpdate]) -> None:
             if count != 1:
                 raise UpdateError(
                     f"expected one checksum assignment for {update.module} in "
-                    f"{family.metadata_class}, found {count}"
+                    f"{family.required_include}, found {count}"
                 )
 
 
@@ -381,7 +383,7 @@ def fetch_checksums(updates: Iterable[RecipeUpdate]) -> dict[str, str]:
 def updated_metadata(
     root: Path, updates: Iterable[RecipeUpdate], checksums: dict[str, str]
 ) -> dict[Path, str]:
-    """Prepare updated class contents without modifying files.
+    """Prepare updated include contents without modifying files.
 
     Args:
         root: Layer repository root.
@@ -389,14 +391,14 @@ def updated_metadata(
         checksums: Downloaded checksums keyed by archive URL.
 
     Returns:
-        New class contents keyed by metadata path.
+        New include contents keyed by metadata path.
 
     Raises:
         UpdateError: If a checksum assignment cannot be replaced exactly once.
     """
     result: dict[Path, str] = {}
     for family, family_updates in group_by_family(updates).items():
-        path = root / family.metadata_class
+        path = root / family.required_include
         text = path.read_text(encoding="utf-8")
 
         for update in family_updates:
@@ -420,11 +422,11 @@ def apply_updates(
     updates: list[RecipeUpdate],
     metadata: dict[Path, str],
 ) -> None:
-    """Write prepared class metadata and rename versioned recipes.
+    """Write prepared include metadata and rename versioned recipes.
 
     Args:
         updates: Validated recipe updates to apply.
-        metadata: Prepared class contents keyed by destination path.
+        metadata: Prepared include contents keyed by destination path.
     """
     for path, content in metadata.items():
         path.write_text(content, encoding="utf-8")

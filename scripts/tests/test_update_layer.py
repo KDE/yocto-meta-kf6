@@ -29,21 +29,24 @@ class UpdateLayerTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
         self.root = Path(self.temporary.name)
-        (self.root / "classes").mkdir()
         (self.root / "recipes-kf6/tier1").mkdir(parents=True)
         (self.root / "recipes-kdesupport").mkdir()
-        (self.root / "classes/kf6.bbclass").write_text(
+        (self.root / "recipes-kf6/frameworks_src.inc").write_text(
             f'SRC_URI_SHA256SUM_attica = "{OLD_CHECKSUM}"\n', encoding="utf-8"
         )
-        (self.root / "classes/kdegear.bbclass").write_text(
+        (self.root / "recipes-kdesupport/application_src.inc").write_text(
             f'SRC_URI_SHA256SUM_baloo-widgets = "{OLD_CHECKSUM}"\n', encoding="utf-8"
         )
         (self.root / "recipes-kf6/tier1/attica_6.25.0.bb").write_text(
-            "SUMMARY = \"Attica\"\ninherit kf6 kf6_cmake_framework\n",
+            "SUMMARY = \"Attica\"\n"
+            "require recipes-kf6/frameworks_src.inc\n"
+            "inherit kf6_cmake_framework\n",
             encoding="utf-8",
         )
         (self.root / "recipes-kdesupport/baloo-widgets_25.12.1.bb").write_text(
-            "SUMMARY = \"Baloo Widgets\"\ninherit kdegear\n", encoding="utf-8"
+            "SUMMARY = \"Baloo Widgets\"\n"
+            "require recipes-kdesupport/application_src.inc\n",
+            encoding="utf-8",
         )
 
     def tearDown(self) -> None:
@@ -62,7 +65,10 @@ class UpdateLayerTests(unittest.TestCase):
         destination = self.root / "recipes-kf6/tier1/attica_6.18.0.bb"
         self.assertTrue(destination.is_file())
         self.assertFalse((self.root / "recipes-kf6/tier1/attica_6.25.0.bb").exists())
-        self.assertIn(NEW_CHECKSUM, (self.root / "classes/kf6.bbclass").read_text())
+        self.assertIn(
+            NEW_CHECKSUM,
+            (self.root / "recipes-kf6/frameworks_src.inc").read_text(),
+        )
         self.assertEqual(
             updates[0].archive_url,
             "https://download.kde.org/stable/frameworks/6.18/attica-6.18.0.tar.xz",
@@ -78,7 +84,10 @@ class UpdateLayerTests(unittest.TestCase):
         self.assertTrue(
             (self.root / "recipes-kdesupport/baloo-widgets_26.04.2.bb").is_file()
         )
-        self.assertIn(NEW_CHECKSUM, (self.root / "classes/kdegear.bbclass").read_text())
+        self.assertIn(
+            NEW_CHECKSUM,
+            (self.root / "recipes-kdesupport/application_src.inc").read_text(),
+        )
 
     def test_same_version_is_idempotent(self) -> None:
         update_layer.execute(
@@ -161,7 +170,7 @@ class UpdateLayerTests(unittest.TestCase):
 
     def test_fetch_failure_does_not_modify_files(self) -> None:
         original_recipe = self.root / "recipes-kf6/tier1/attica_6.25.0.bb"
-        original_class = (self.root / "classes/kf6.bbclass").read_text()
+        original_include = (self.root / "recipes-kf6/frameworks_src.inc").read_text()
 
         def fail(_updates):
             raise update_layer.UpdateError("unavailable")
@@ -171,7 +180,10 @@ class UpdateLayerTests(unittest.TestCase):
                 self.root, [update_layer.Release("framework", "6.18.0")], fail
             )
         self.assertTrue(original_recipe.is_file())
-        self.assertEqual(original_class, (self.root / "classes/kf6.bbclass").read_text())
+        self.assertEqual(
+            original_include,
+            (self.root / "recipes-kf6/frameworks_src.inc").read_text(),
+        )
 
     def test_destination_collision_does_not_modify_files(self) -> None:
         collision = self.root / "recipes-kf6/tier1/attica_6.18.0.bb"
@@ -181,7 +193,10 @@ class UpdateLayerTests(unittest.TestCase):
                 self.root, [update_layer.Release("framework", "6.18.0")], self.checksums
             )
         self.assertEqual(collision.read_text(), "collision\n")
-        self.assertIn(OLD_CHECKSUM, (self.root / "classes/kf6.bbclass").read_text())
+        self.assertIn(
+            OLD_CHECKSUM,
+            (self.root / "recipes-kf6/frameworks_src.inc").read_text(),
+        )
 
     def test_invalid_versions_are_rejected(self) -> None:
         with self.assertRaises(Exception):
