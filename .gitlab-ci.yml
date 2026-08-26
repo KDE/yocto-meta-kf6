@@ -130,6 +130,7 @@ yocto_scarthgap_seeding:
 
 yocto_wrynose:
   extends: .yocto_base_wrynose
+  timeout: 8 hours
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
   script:
