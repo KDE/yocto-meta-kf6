@@ -34,4 +34,4 @@ inherit kf6_cmake_framework
 inherit kf6_ki18n
 inherit reuse_license_checksums
 
-FILES:${PN} += "${datadir}/xdg-desktop-portal/portals/*"
+FILES:${PN} += "${datadir}/xdg-desktop-portal/portals/* ${datadir}/config.kcfg"

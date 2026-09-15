@@ -42,6 +42,7 @@ FILES:${PN} += "${libdir}/plugins/kf6/kio/*.so \
                 ${libdir}/qml/org/kde/baloo/* \
                 ${libdir}/qml/org/kde/baloo/experimental/* \
                 ${datadir}/icons/hicolor/128x128/apps/baloo.png \
+                ${datadir}/config.kcfg \
 "
 
 RDEPENDS:${PN} += "lmdb"
