@@ -48,6 +48,7 @@
       "SRC_URI_SHA256SUM_kitemmodels",
       "SRC_URI_SHA256SUM_kitemviews",
       "SRC_URI_SHA256SUM_kjobwidgets",
+      "SRC_URI_SHA256SUM_kmime",
       "SRC_URI_SHA256SUM_knewstuff",
       "SRC_URI_SHA256SUM_knotifications",
       "SRC_URI_SHA256SUM_knotifyconfig",
